@@ -1,0 +1,10 @@
+{
+  "id": "7d3d1fe0-d817-11ef-8dce-7f0fb71ccad7",
+  "path": "index2.html",
+  "title": "Switching Settings",
+  "icon": "/images/icon-default.png",
+  "devices": [
+    "APP"
+  ],
+  "main": false
+}

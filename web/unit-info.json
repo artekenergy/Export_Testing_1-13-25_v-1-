@@ -1,0 +1,2084 @@
+{
+  "units": [
+    {
+      "name": "SERV+",
+      "empirBusId": 1,
+      "type": {
+        "id": 48
+      },
+      "channelGroups": [
+        {
+          "guid": "00000000-0000-0000-0000-000000000000",
+          "channels": [
+            {
+              "name": "Channel 1",
+              "number": 1
+            },
+            {
+              "name": "Channel 2",
+              "number": 2
+            },
+            {
+              "name": "Channel 3",
+              "number": 3
+            },
+            {
+              "name": "Channel 4",
+              "number": 4
+            },
+            {
+              "name": "Channel 5",
+              "number": 5
+            },
+            {
+              "name": "Channel 6",
+              "number": 6
+            },
+            {
+              "name": "Channel 7",
+              "number": 7
+            },
+            {
+              "name": "Channel 8",
+              "number": 8
+            },
+            {
+              "name": "MultiSwitch",
+              "number": 9
+            },
+            {
+              "name": "Internal Temp Sensor",
+              "number": 10
+            },
+            {
+              "name": "External Temp Sensor",
+              "number": 11
+            },
+            {
+              "name": "Channel 12",
+              "number": 12
+            },
+            {
+              "name": "RV-C",
+              "number": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MFD / WDU",
+      "empirBusId": 2,
+      "type": {
+        "id": 200
+      },
+      "channelGroups": [
+        {
+          "guid": "00000000-0000-0000-0000-000000000000",
+          "channels": [
+            {
+              "name": "All Int Lts On/Off",
+              "number": 1
+            },
+            {
+              "name": "Channel 2",
+              "number": 2
+            },
+            {
+              "name": "Channel 1: Mom",
+              "number": 3
+            },
+            {
+              "name": "Channel 1: Int. DCU",
+              "number": 4
+            },
+            {
+              "name": "Channel 1: Ext. DCU",
+              "number": 5
+            },
+            {
+              "name": "Channel 1: PBC",
+              "number": 6
+            },
+            {
+              "name": "Settings: Ch 1 Off",
+              "number": 7
+            },
+            {
+              "name": "Settings: Ch 1 Light",
+              "number": 8
+            },
+            {
+              "name": "Settings: Ch 1 Output",
+              "number": 9
+            },
+            {
+              "name": "Settings: Ch 1 Off Ind",
+              "number": 10
+            },
+            {
+              "name": "Settings: Ch 1 Lt Dim",
+              "number": 11
+            },
+            {
+              "name": "Settings: Ch 1 Lt Nondim",
+              "number": 12
+            },
+            {
+              "name": "Settings: Ch 1 Lt Interior",
+              "number": 13
+            },
+            {
+              "name": "Settings: Ch 1 Lt Exterior",
+              "number": 14
+            },
+            {
+              "name": "Settings: Ch 1 PBC",
+              "number": 15
+            },
+            {
+              "name": "Settings: Ch 1 Momentary",
+              "number": 16
+            },
+            {
+              "name": "Ch. 1 Lt Ext PBC",
+              "number": 17
+            },
+            {
+              "name": "Ch. 1 Lt Int PBC",
+              "number": 18
+            },
+            {
+              "name": "Ch 2: Mom",
+              "number": 19
+            },
+            {
+              "name": "Channel 2: Int. DCU",
+              "number": 20
+            },
+            {
+              "name": "Ch 2: Ext. DCU",
+              "number": 21
+            },
+            {
+              "name": "Ch 2: PBC",
+              "number": 22
+            },
+            {
+              "name": "Settings: Ch 2: Off",
+              "number": 23
+            },
+            {
+              "name": "Settings: Ch 2: Light",
+              "number": 24
+            },
+            {
+              "name": "Settings: Ch 2: Output",
+              "number": 25
+            },
+            {
+              "name": "Settings: Ch 2: Off Ind",
+              "number": 26
+            },
+            {
+              "name": "Settings: Ch 2: Lt Dim",
+              "number": 27
+            },
+            {
+              "name": "Settings: Ch 2: Lt Nondim",
+              "number": 28
+            },
+            {
+              "name": "Settings: Ch 2: Lt Interior",
+              "number": 29
+            },
+            {
+              "name": "Settings: Ch 2: Lt Exterior",
+              "number": 30
+            },
+            {
+              "name": "Settings: Ch 2: PBC",
+              "number": 31
+            },
+            {
+              "name": "Settings: Ch 2: Momentary",
+              "number": 32
+            },
+            {
+              "name": "Ch 2: Lt Ext PBC",
+              "number": 33
+            },
+            {
+              "name": "Ch 2: Lt Int PBC",
+              "number": 34
+            },
+            {
+              "name": "Ch 3: Mom",
+              "number": 35
+            },
+            {
+              "name": "Ch 3: Int. DCU",
+              "number": 36
+            },
+            {
+              "name": "Ch 3: Ext. DCU",
+              "number": 37
+            },
+            {
+              "name": "Ch 3: PBC",
+              "number": 38
+            },
+            {
+              "name": "Settings: Ch 3 Off",
+              "number": 39
+            },
+            {
+              "name": "Settings: Ch 3 Light",
+              "number": 40
+            },
+            {
+              "name": "Settings: Ch 3 Output",
+              "number": 41
+            },
+            {
+              "name": "Settings: Ch 3 Off Ind",
+              "number": 42
+            },
+            {
+              "name": "Settings: Ch 3 Lt Dim",
+              "number": 43
+            },
+            {
+              "name": "Settings: Ch 3 Lt Nondim",
+              "number": 44
+            },
+            {
+              "name": "Settings: Ch 3 Lt Interior",
+              "number": 45
+            },
+            {
+              "name": "Settings: Ch 3 Lt Exterior",
+              "number": 46
+            },
+            {
+              "name": "Settings: Ch 3 PBC",
+              "number": 47
+            },
+            {
+              "name": "Settings: Ch 3 Momentary",
+              "number": 48
+            },
+            {
+              "name": "Ch 3: Lt Ext PBC",
+              "number": 49
+            },
+            {
+              "name": "Ch 3: Lt Int PBC",
+              "number": 50
+            },
+            {
+              "name": "Ch 4: Mom",
+              "number": 51
+            },
+            {
+              "name": "Ch 4: Int. DCU",
+              "number": 52
+            },
+            {
+              "name": "Ch 4: Ext. DCU",
+              "number": 53
+            },
+            {
+              "name": "Ch 4: PBC",
+              "number": 54
+            },
+            {
+              "name": "Settings: Ch 4: Off",
+              "number": 55
+            },
+            {
+              "name": "Settings: Ch 4: Light",
+              "number": 56
+            },
+            {
+              "name": "Settings: Ch 4: Output",
+              "number": 57
+            },
+            {
+              "name": "Settings: Ch 4: Off Ind",
+              "number": 58
+            },
+            {
+              "name": "Settings: Ch 4: Lt Dim",
+              "number": 59
+            },
+            {
+              "name": "Settings: Ch 4: Lt Nondim",
+              "number": 60
+            },
+            {
+              "name": "Settings: Ch 4: Lt Interior",
+              "number": 61
+            },
+            {
+              "name": "Settings: Ch 4: Lt Exterior",
+              "number": 62
+            },
+            {
+              "name": "Settings: Ch 4: PBC",
+              "number": 63
+            },
+            {
+              "name": "Settings: Ch 4: Momentary",
+              "number": 64
+            },
+            {
+              "name": "Ch 4: Lt Ext PBC",
+              "number": 65
+            },
+            {
+              "name": "Ch 4: Lt Int PBC",
+              "number": 66
+            },
+            {
+              "name": "Ch 5: Mom",
+              "number": 67
+            },
+            {
+              "name": "Ch 5: Int. DCU",
+              "number": 68
+            },
+            {
+              "name": "Ch 5: Ext. DCU",
+              "number": 69
+            },
+            {
+              "name": "Ch 5: PBC",
+              "number": 70
+            },
+            {
+              "name": "Settings: Ch 5 Off",
+              "number": 71
+            },
+            {
+              "name": "Settings: Ch 5 Light",
+              "number": 72
+            },
+            {
+              "name": "Settings: Ch 5 Output",
+              "number": 73
+            },
+            {
+              "name": "Settings: Ch 5 Off Ind",
+              "number": 74
+            },
+            {
+              "name": "Settings: Ch 5 Lt Dim",
+              "number": 75
+            },
+            {
+              "name": "Settings: Ch 5 Lt Nondim",
+              "number": 76
+            },
+            {
+              "name": "Settings: Ch 5 Lt Interior",
+              "number": 77
+            },
+            {
+              "name": "Settings: Ch 5 Lt Exterior",
+              "number": 78
+            },
+            {
+              "name": "Settings: Ch 5 PBC",
+              "number": 79
+            },
+            {
+              "name": "Settings: Ch 5 Momentary",
+              "number": 80
+            },
+            {
+              "name": "Ch 5: Lt Ext PBC",
+              "number": 81
+            },
+            {
+              "name": "Ch 5: Lt Int PBC",
+              "number": 82
+            },
+            {
+              "name": "Ch 9: Mom",
+              "number": 83
+            },
+            {
+              "name": "Ch 9: Int. DCU",
+              "number": 84
+            },
+            {
+              "name": "Ch 9: Ext. DCU",
+              "number": 85
+            },
+            {
+              "name": "Ch 9: PBC",
+              "number": 86
+            },
+            {
+              "name": "Settings: Ch 9: Off",
+              "number": 87
+            },
+            {
+              "name": "Settings: Ch 9: Light",
+              "number": 88
+            },
+            {
+              "name": "Settings: Ch 9: Output",
+              "number": 89
+            },
+            {
+              "name": "Settings: Ch 9: Off Ind",
+              "number": 90
+            },
+            {
+              "name": "Settings: Ch 9: Lt Dim",
+              "number": 91
+            },
+            {
+              "name": "Settings: Ch 9: Lt Nondim",
+              "number": 92
+            },
+            {
+              "name": "Settings: Ch 9: Lt Interior",
+              "number": 93
+            },
+            {
+              "name": "Settings: Ch 9: Lt Exterior",
+              "number": 94
+            },
+            {
+              "name": "Settings: Ch 9: PBC",
+              "number": 95
+            },
+            {
+              "name": "Settings: Ch 9: Momentary",
+              "number": 96
+            },
+            {
+              "name": "Ch 9: Lt Ext PBC",
+              "number": 97
+            },
+            {
+              "name": "Ch 9: Lt Int PBC",
+              "number": 98
+            },
+            {
+              "name": "Save Settings",
+              "number": 99
+            },
+            {
+              "name": "Reset Settings",
+              "number": 100
+            },
+            {
+              "name": "Victron: Leg 1 in AC Current",
+              "number": 101
+            },
+            {
+              "name": "Victron: Leg 1 In AC Voltage",
+              "number": 102
+            },
+            {
+              "name": "Victron: AC Input Limit Increase",
+              "number": 103
+            },
+            {
+              "name": "Victron: AC Input Limit Decrease",
+              "number": 104
+            },
+            {
+              "name": "Victron: Solar Roof Voltage",
+              "number": 105
+            },
+            {
+              "name": "Victron: Leg 1 AC Out Voltage",
+              "number": 106
+            },
+            {
+              "name": "Victron: Leg 1 AC Out Amperage",
+              "number": 107
+            },
+            {
+              "name": "Victron: AC Limit",
+              "number": 108
+            },
+            {
+              "name": "Victron: Inv/Cha On/Off",
+              "number": 109
+            },
+            {
+              "name": "Victron: Charger Only",
+              "number": 110
+            },
+            {
+              "name": "Victron: Charge Voltage",
+              "number": 111
+            },
+            {
+              "name": "Victron: Charge Amperage",
+              "number": 112
+            },
+            {
+              "name": "Victron: Invert",
+              "number": 113
+            },
+            {
+              "name": "Victron: AC Passthrough",
+              "number": 114
+            },
+            {
+              "name": "Victron: Inverter Off",
+              "number": 115
+            },
+            {
+              "name": "Victron: Solar Bulk",
+              "number": 116
+            },
+            {
+              "name": "Victron: Solar Roof Amperage",
+              "number": 117
+            },
+            {
+              "name": "Wakespeed: Temperature",
+              "number": 118
+            },
+            {
+              "name": "Wakespeed: Voltage",
+              "number": 119
+            },
+            {
+              "name": "Wakespeed: Bulk",
+              "number": 120
+            },
+            {
+              "name": "Wakespeed: Amperage",
+              "number": 121
+            },
+            {
+              "name": "Victron: Solar Aux Voltage",
+              "number": 122
+            },
+            {
+              "name": "Victron: Solar Aux Amperage",
+              "number": 123
+            },
+            {
+              "name": "Ext Zone 4: Passenger Side",
+              "number": 124
+            },
+            {
+              "name": "Ext Zone 4: Driver Side",
+              "number": 125
+            },
+            {
+              "name": "Victron: Battery Voltage",
+              "number": 126
+            },
+            {
+              "name": "Victron: Battery Temperarture",
+              "number": 127
+            },
+            {
+              "name": "Victron: State of Charge",
+              "number": 128
+            },
+            {
+              "name": "VIctron: Time Remaining",
+              "number": 129
+            },
+            {
+              "name": "Victron: Battery Amperage",
+              "number": 130
+            },
+            {
+              "name": "Starter Battery: Voltage",
+              "number": 131
+            },
+            {
+              "name": "Plugged In",
+              "number": 132
+            },
+            {
+              "name": "Rixen's: Fan Speed Increase",
+              "number": 133
+            },
+            {
+              "name": "Rixen's: Fan Speed Decrease",
+              "number": 134
+            },
+            {
+              "name": "Channel 338",
+              "number": 135
+            },
+            {
+              "name": "Rixen's: Fan On/Off",
+              "number": 136
+            },
+            {
+              "name": "Thermostat: Increase Set Temp",
+              "number": 137
+            },
+            {
+              "name": "Thermostat: Decrease Set Temp",
+              "number": 138
+            },
+            {
+              "name": "Int Temp Set Value",
+              "number": 139
+            },
+            {
+              "name": "Rixen's: Floor Heat On/Off",
+              "number": 140
+            },
+            {
+              "name": "Rixen's: Furnace On/Off",
+              "number": 141
+            },
+            {
+              "name": "Rixen's: Electric On/Off",
+              "number": 142
+            },
+            {
+              "name": "Rixen's: Engine On/Off",
+              "number": 143
+            },
+            {
+              "name": "Rixen's: Hot Water On/Off",
+              "number": 144
+            },
+            {
+              "name": "Rixen's: Aux On/Off",
+              "number": 145
+            },
+            {
+              "name": "CNC: Ac On/Off",
+              "number": 146
+            },
+            {
+              "name": "CNC: Blower Only",
+              "number": 147
+            },
+            {
+              "name": "CNC: High",
+              "number": 148
+            },
+            {
+              "name": "CNC: Medium",
+              "number": 149
+            },
+            {
+              "name": "CNC: Low",
+              "number": 150
+            },
+            {
+              "name": "Int Temp Sensor Value",
+              "number": 151
+            },
+            {
+              "name": "Recpro: AC On/Off",
+              "number": 152
+            },
+            {
+              "name": "RecPro: Fan Low",
+              "number": 153
+            },
+            {
+              "name": "RecPro: Fan Med",
+              "number": 154
+            },
+            {
+              "name": "RecPro: Fan High",
+              "number": 155
+            },
+            {
+              "name": "Recpro: Fan Only",
+              "number": 156
+            },
+            {
+              "name": "Cel",
+              "number": 157
+            },
+            {
+              "name": "MaxxFan 1: Increase Fan Speed ",
+              "number": 158
+            },
+            {
+              "name": "MaxxFan 1: Decrease Fan Speed",
+              "number": 159
+            },
+            {
+              "name": "MaxxFan 1: Fan Speed by %",
+              "number": 160
+            },
+            {
+              "name": "MaxxFan 1:: On/Off",
+              "number": 161
+            },
+            {
+              "name": "MaxxFan 1: Exhaust fan direction button",
+              "number": 162
+            },
+            {
+              "name": "MaxxFan 1: Intake fan direction button",
+              "number": 163
+            },
+            {
+              "name": "MaxxFan 2: Increase Fan Speed ",
+              "number": 164
+            },
+            {
+              "name": "MaxxFan 2: Decrease Fan Speed",
+              "number": 165
+            },
+            {
+              "name": "MaxxFan 2: Fan Speed by %",
+              "number": 166
+            },
+            {
+              "name": "MaxxFan 2: On/Off",
+              "number": 167
+            },
+            {
+              "name": "MaxxFan 2 Exhaust fan direction button",
+              "number": 168
+            },
+            {
+              "name": "MaxxFan 2 Intake fan direction button",
+              "number": 169
+            },
+            {
+              "name": "Heat Pump On/Off",
+              "number": 170
+            },
+            {
+              "name": "HVAC Setting: 1 Fan ",
+              "number": 171
+            },
+            {
+              "name": "1 Fan",
+              "number": 172
+            },
+            {
+              "name": "2 Fans",
+              "number": 173
+            },
+            {
+              "name": "HVAC Setting: Ventilation On/Off",
+              "number": 174
+            },
+            {
+              "name": "HVAC Settings: AC Up",
+              "number": 175
+            },
+            {
+              "name": "HVAC Settings: AC Down",
+              "number": 176
+            },
+            {
+              "name": "CNC",
+              "number": 177
+            },
+            {
+              "name": "RecPro",
+              "number": 178
+            },
+            {
+              "name": "Channel 379",
+              "number": 179
+            },
+            {
+              "name": "Channel 380",
+              "number": 180
+            },
+            {
+              "name": "Channel 381",
+              "number": 181
+            },
+            {
+              "name": "Channel 382",
+              "number": 182
+            },
+            {
+              "name": "Channel 383",
+              "number": 183
+            },
+            {
+              "name": "Channel 384",
+              "number": 184
+            },
+            {
+              "name": "Channel 385",
+              "number": 185
+            },
+            {
+              "name": "Channel 386",
+              "number": 186
+            },
+            {
+              "name": "Channel 387",
+              "number": 187
+            },
+            {
+              "name": "Channel 388",
+              "number": 188
+            },
+            {
+              "name": "Channel 389",
+              "number": 189
+            },
+            {
+              "name": "Channel 390",
+              "number": 190
+            },
+            {
+              "name": "Channel 391",
+              "number": 191
+            },
+            {
+              "name": "Channel 392",
+              "number": 192
+            },
+            {
+              "name": "HVAC Setting: Heater On/Off",
+              "number": 193
+            },
+            {
+              "name": "HVAC Setting: Floor Option",
+              "number": 194
+            },
+            {
+              "name": "RecPro Heat Pump",
+              "number": 195
+            },
+            {
+              "name": "HVAC Setting: Fan Option",
+              "number": 196
+            },
+            {
+              "name": "HVAC Setting: Engine Option",
+              "number": 197
+            },
+            {
+              "name": "HVAC Setting: Electric Option",
+              "number": 198
+            },
+            {
+              "name": "HVAC Settings: Aux On/Off",
+              "number": 199
+            },
+            {
+              "name": "HVAC Settings: AC On/Off",
+              "number": 200
+            },
+            {
+              "name": "Int Zone 2: Closet",
+              "number": 201
+            },
+            {
+              "name": "Tank 2 Signal Value",
+              "number": 202
+            },
+            {
+              "name": "Tank 1 Signal Value",
+              "number": 203
+            },
+            {
+              "name": "Tank 1 Up",
+              "number": 204
+            },
+            {
+              "name": "Tank 1 Down",
+              "number": 205
+            },
+            {
+              "name": "Tank 2 Up",
+              "number": 206
+            },
+            {
+              "name": "Tank 2 Down",
+              "number": 207
+            },
+            {
+              "name": "Tank 4 Signal Value",
+              "number": 208
+            },
+            {
+              "name": "Tank 3 Signal Value",
+              "number": 209
+            },
+            {
+              "name": "Tank 3 Up",
+              "number": 210
+            },
+            {
+              "name": "Tank 3 Down",
+              "number": 211
+            },
+            {
+              "name": "Tank 4 Up",
+              "number": 212
+            },
+            {
+              "name": "Tank 4 Down",
+              "number": 213
+            },
+            {
+              "name": "Tank 1",
+              "number": 214
+            },
+            {
+              "name": "Tank 3",
+              "number": 215
+            },
+            {
+              "name": "Tank 2",
+              "number": 216
+            },
+            {
+              "name": "Tank 4",
+              "number": 217
+            },
+            {
+              "name": "Tank No Increase",
+              "number": 218
+            },
+            {
+              "name": "No tanks Decrease",
+              "number": 219
+            },
+            {
+              "name": "Water Tanks On/Off",
+              "number": 220
+            },
+            {
+              "name": "No. of tanks",
+              "number": 221
+            },
+            {
+              "name": "Seetings: Primary Solar",
+              "number": 222
+            },
+            {
+              "name": "Settings: Aux Solar",
+              "number": 223
+            },
+            {
+              "name": "Settings: Orion Xs",
+              "number": 224
+            },
+            {
+              "name": "Settings: Wakespeed",
+              "number": 225
+            },
+            {
+              "name": "Power: Primary Solar Ind",
+              "number": 226
+            },
+            {
+              "name": "Secondary Solar: Ind",
+              "number": 227
+            },
+            {
+              "name": "Orion XS: ind",
+              "number": 228
+            },
+            {
+              "name": "WS On/Off Ind",
+              "number": 229
+            },
+            {
+              "name": "Settings Ch 1: Ramp On/Off",
+              "number": 230
+            },
+            {
+              "name": "Settings Ch 2: Ramp On/Off",
+              "number": 231
+            },
+            {
+              "name": "Settings Ch 3: Ramp On/Off",
+              "number": 232
+            },
+            {
+              "name": "Settings Ch 4: Ramp On/Off",
+              "number": 233
+            },
+            {
+              "name": "Settings Ch 5: Ramp On/Off",
+              "number": 234
+            },
+            {
+              "name": "Settings Ch 6: Ramp On/Off",
+              "number": 235
+            },
+            {
+              "name": "All Ext Lts On/Off",
+              "number": 236
+            },
+            {
+              "name": "Channel 237",
+              "number": 237
+            },
+            {
+              "name": "Channel 238",
+              "number": 238
+            },
+            {
+              "name": "Channel 239",
+              "number": 239
+            },
+            {
+              "name": "Channel 240",
+              "number": 240
+            },
+            {
+              "name": "Channel 241",
+              "number": 241
+            },
+            {
+              "name": "Channel 242",
+              "number": 242
+            },
+            {
+              "name": "Channel 243",
+              "number": 243
+            },
+            {
+              "name": "Channel 244",
+              "number": 244
+            },
+            {
+              "name": "Channel 245",
+              "number": 245
+            },
+            {
+              "name": "Channel 246",
+              "number": 246
+            },
+            {
+              "name": "Channel 247",
+              "number": 247
+            },
+            {
+              "name": "Channel 248",
+              "number": 248
+            },
+            {
+              "name": "Channel 249",
+              "number": 249
+            },
+            {
+              "name": "Channel 250",
+              "number": 250
+            },
+            {
+              "name": "Channel 251",
+              "number": 251
+            },
+            {
+              "name": "Channel 252",
+              "number": 252
+            },
+            {
+              "name": "Channel 253",
+              "number": 253
+            },
+            {
+              "name": "Channel 254",
+              "number": 254
+            },
+            {
+              "name": "Channel 255",
+              "number": 255
+            },
+            {
+              "name": "Channel 256",
+              "number": 256
+            },
+            {
+              "name": "Channel 257",
+              "number": 257
+            },
+            {
+              "name": "Channel 258",
+              "number": 258
+            },
+            {
+              "name": "Channel 259",
+              "number": 259
+            },
+            {
+              "name": "Channel 260",
+              "number": 260
+            },
+            {
+              "name": "Channel 261",
+              "number": 261
+            },
+            {
+              "name": "Channel 262",
+              "number": 262
+            },
+            {
+              "name": "Channel 263",
+              "number": 263
+            },
+            {
+              "name": "Channel 264",
+              "number": 264
+            },
+            {
+              "name": "Channel 265",
+              "number": 265
+            },
+            {
+              "name": "Channel 266",
+              "number": 266
+            },
+            {
+              "name": "Channel 267",
+              "number": 267
+            },
+            {
+              "name": "Channel 268",
+              "number": 268
+            },
+            {
+              "name": "Channel 269",
+              "number": 269
+            },
+            {
+              "name": "Channel 270",
+              "number": 270
+            },
+            {
+              "name": "Channel 271",
+              "number": 271
+            },
+            {
+              "name": "Channel 272",
+              "number": 272
+            },
+            {
+              "name": "Channel 273",
+              "number": 273
+            },
+            {
+              "name": "Channel 274",
+              "number": 274
+            },
+            {
+              "name": "Channel 275",
+              "number": 275
+            },
+            {
+              "name": "Channel 276",
+              "number": 276
+            },
+            {
+              "name": "Channel 277",
+              "number": 277
+            },
+            {
+              "name": "Channel 278",
+              "number": 278
+            },
+            {
+              "name": "Channel 279",
+              "number": 279
+            },
+            {
+              "name": "Channel 280",
+              "number": 280
+            },
+            {
+              "name": "Channel 281",
+              "number": 281
+            },
+            {
+              "name": "Channel 282",
+              "number": 282
+            },
+            {
+              "name": "Channel 283",
+              "number": 283
+            },
+            {
+              "name": "Channel 284",
+              "number": 284
+            },
+            {
+              "name": "Channel 285",
+              "number": 285
+            },
+            {
+              "name": "Channel 286",
+              "number": 286
+            },
+            {
+              "name": "Channel 287",
+              "number": 287
+            },
+            {
+              "name": "Channel 288",
+              "number": 288
+            },
+            {
+              "name": "Channel 289",
+              "number": 289
+            },
+            {
+              "name": "Channel 290",
+              "number": 290
+            },
+            {
+              "name": "Channel 291",
+              "number": 291
+            },
+            {
+              "name": "Channel 292",
+              "number": 292
+            },
+            {
+              "name": "Channel 293",
+              "number": 293
+            },
+            {
+              "name": "Channel 294",
+              "number": 294
+            },
+            {
+              "name": "Channel 295",
+              "number": 295
+            },
+            {
+              "name": "Channel 296",
+              "number": 296
+            },
+            {
+              "name": "Channel 297",
+              "number": 297
+            },
+            {
+              "name": "Channel 298",
+              "number": 298
+            },
+            {
+              "name": "Channel 299",
+              "number": 299
+            },
+            {
+              "name": "Channel 300",
+              "number": 300
+            },
+            {
+              "name": "Channel 301",
+              "number": 301
+            },
+            {
+              "name": "Channel 302",
+              "number": 302
+            },
+            {
+              "name": "Channel 303",
+              "number": 303
+            },
+            {
+              "name": "Channel 304",
+              "number": 304
+            },
+            {
+              "name": "Channel 305",
+              "number": 305
+            },
+            {
+              "name": "Channel 306",
+              "number": 306
+            },
+            {
+              "name": "Channel 307",
+              "number": 307
+            },
+            {
+              "name": "Channel 308",
+              "number": 308
+            },
+            {
+              "name": "Channel 309",
+              "number": 309
+            },
+            {
+              "name": "Channel 310",
+              "number": 310
+            },
+            {
+              "name": "Channel 311",
+              "number": 311
+            },
+            {
+              "name": "Channel 312",
+              "number": 312
+            },
+            {
+              "name": "Channel 313",
+              "number": 313
+            },
+            {
+              "name": "Channel 314",
+              "number": 314
+            },
+            {
+              "name": "Channel 315",
+              "number": 315
+            },
+            {
+              "name": "Channel 316",
+              "number": 316
+            },
+            {
+              "name": "Channel 317",
+              "number": 317
+            },
+            {
+              "name": "Channel 318",
+              "number": 318
+            },
+            {
+              "name": "Channel 319",
+              "number": 319
+            },
+            {
+              "name": "Channel 320",
+              "number": 320
+            },
+            {
+              "name": "Channel 321",
+              "number": 321
+            },
+            {
+              "name": "Channel 322",
+              "number": 322
+            },
+            {
+              "name": "Channel 323",
+              "number": 323
+            },
+            {
+              "name": "Channel 324",
+              "number": 324
+            },
+            {
+              "name": "Channel 325",
+              "number": 325
+            },
+            {
+              "name": "Channel 326",
+              "number": 326
+            },
+            {
+              "name": "Channel 327",
+              "number": 327
+            },
+            {
+              "name": "Channel 328",
+              "number": 328
+            },
+            {
+              "name": "Channel 329",
+              "number": 329
+            },
+            {
+              "name": "Channel 330",
+              "number": 330
+            },
+            {
+              "name": "Channel 331",
+              "number": 331
+            },
+            {
+              "name": "Channel 332",
+              "number": 332
+            },
+            {
+              "name": "Channel 333",
+              "number": 333
+            },
+            {
+              "name": "Channel 334",
+              "number": 334
+            },
+            {
+              "name": "Channel 335",
+              "number": 335
+            },
+            {
+              "name": "Channel 336",
+              "number": 336
+            },
+            {
+              "name": "Channel 337",
+              "number": 337
+            },
+            {
+              "name": "Channel 338",
+              "number": 338
+            },
+            {
+              "name": "Channel 339",
+              "number": 339
+            },
+            {
+              "name": "Channel 340",
+              "number": 340
+            },
+            {
+              "name": "Channel 341",
+              "number": 341
+            },
+            {
+              "name": "Channel 342",
+              "number": 342
+            },
+            {
+              "name": "Channel 343",
+              "number": 343
+            },
+            {
+              "name": "Channel 344",
+              "number": 344
+            },
+            {
+              "name": "Channel 345",
+              "number": 345
+            },
+            {
+              "name": "Channel 346",
+              "number": 346
+            },
+            {
+              "name": "Channel 347",
+              "number": 347
+            },
+            {
+              "name": "Channel 348",
+              "number": 348
+            },
+            {
+              "name": "Channel 349",
+              "number": 349
+            },
+            {
+              "name": "Channel 350",
+              "number": 350
+            },
+            {
+              "name": "Channel 351",
+              "number": 351
+            },
+            {
+              "name": "Channel 352",
+              "number": 352
+            },
+            {
+              "name": "Channel 353",
+              "number": 353
+            },
+            {
+              "name": "Channel 354",
+              "number": 354
+            },
+            {
+              "name": "Channel 355",
+              "number": 355
+            },
+            {
+              "name": "Channel 356",
+              "number": 356
+            },
+            {
+              "name": "Channel 357",
+              "number": 357
+            },
+            {
+              "name": "Channel 358",
+              "number": 358
+            },
+            {
+              "name": "Channel 359",
+              "number": 359
+            },
+            {
+              "name": "Channel 360",
+              "number": 360
+            },
+            {
+              "name": "Channel 361",
+              "number": 361
+            },
+            {
+              "name": "Channel 362",
+              "number": 362
+            },
+            {
+              "name": "Channel 363",
+              "number": 363
+            },
+            {
+              "name": "Channel 364",
+              "number": 364
+            },
+            {
+              "name": "Channel 365",
+              "number": 365
+            },
+            {
+              "name": "Channel 366",
+              "number": 366
+            },
+            {
+              "name": "Channel 367",
+              "number": 367
+            },
+            {
+              "name": "Channel 368",
+              "number": 368
+            },
+            {
+              "name": "Channel 369",
+              "number": 369
+            },
+            {
+              "name": "Channel 370",
+              "number": 370
+            },
+            {
+              "name": "Channel 371",
+              "number": 371
+            },
+            {
+              "name": "Channel 372",
+              "number": 372
+            },
+            {
+              "name": "Channel 373",
+              "number": 373
+            },
+            {
+              "name": "Channel 374",
+              "number": 374
+            },
+            {
+              "name": "Channel 375",
+              "number": 375
+            },
+            {
+              "name": "Channel 376",
+              "number": 376
+            },
+            {
+              "name": "Channel 377",
+              "number": 377
+            },
+            {
+              "name": "Channel 378",
+              "number": 378
+            },
+            {
+              "name": "Channel 379",
+              "number": 379
+            },
+            {
+              "name": "Channel 380",
+              "number": 380
+            },
+            {
+              "name": "Channel 381",
+              "number": 381
+            },
+            {
+              "name": "Channel 382",
+              "number": 382
+            },
+            {
+              "name": "Channel 383",
+              "number": 383
+            },
+            {
+              "name": "Channel 384",
+              "number": 384
+            },
+            {
+              "name": "Channel 385",
+              "number": 385
+            },
+            {
+              "name": "Channel 386",
+              "number": 386
+            },
+            {
+              "name": "Channel 387",
+              "number": 387
+            },
+            {
+              "name": "Channel 388",
+              "number": 388
+            },
+            {
+              "name": "Channel 389",
+              "number": 389
+            },
+            {
+              "name": "Channel 390",
+              "number": 390
+            },
+            {
+              "name": "Channel 391",
+              "number": 391
+            },
+            {
+              "name": "Channel 392",
+              "number": 392
+            },
+            {
+              "name": "Channel 393",
+              "number": 393
+            },
+            {
+              "name": "Channel 394",
+              "number": 394
+            },
+            {
+              "name": "Channel 395",
+              "number": 395
+            },
+            {
+              "name": "Channel 396",
+              "number": 396
+            },
+            {
+              "name": "Channel 397",
+              "number": 397
+            },
+            {
+              "name": "Channel 398",
+              "number": 398
+            },
+            {
+              "name": "Channel 399",
+              "number": 399
+            },
+            {
+              "name": "Channel 400",
+              "number": 400
+            },
+            {
+              "name": "Channel 401",
+              "number": 401
+            },
+            {
+              "name": "Channel 402",
+              "number": 402
+            },
+            {
+              "name": "Channel 403",
+              "number": 403
+            },
+            {
+              "name": "Channel 404",
+              "number": 404
+            },
+            {
+              "name": "Channel 405",
+              "number": 405
+            },
+            {
+              "name": "Channel 406",
+              "number": 406
+            },
+            {
+              "name": "Channel 407",
+              "number": 407
+            },
+            {
+              "name": "Channel 408",
+              "number": 408
+            },
+            {
+              "name": "Channel 409",
+              "number": 409
+            },
+            {
+              "name": "Channel 410",
+              "number": 410
+            },
+            {
+              "name": "Channel 411",
+              "number": 411
+            },
+            {
+              "name": "Channel 412",
+              "number": 412
+            },
+            {
+              "name": "Channel 413",
+              "number": 413
+            },
+            {
+              "name": "Channel 414",
+              "number": 414
+            },
+            {
+              "name": "Channel 415",
+              "number": 415
+            },
+            {
+              "name": "Channel 416",
+              "number": 416
+            },
+            {
+              "name": "Channel 417",
+              "number": 417
+            },
+            {
+              "name": "Channel 418",
+              "number": 418
+            },
+            {
+              "name": "Channel 419",
+              "number": 419
+            },
+            {
+              "name": "Channel 420",
+              "number": 420
+            },
+            {
+              "name": "Channel 421",
+              "number": 421
+            },
+            {
+              "name": "Channel 422",
+              "number": 422
+            },
+            {
+              "name": "Channel 423",
+              "number": 423
+            },
+            {
+              "name": "Channel 424",
+              "number": 424
+            },
+            {
+              "name": "Channel 425",
+              "number": 425
+            },
+            {
+              "name": "Channel 426",
+              "number": 426
+            },
+            {
+              "name": "Channel 427",
+              "number": 427
+            },
+            {
+              "name": "Channel 428",
+              "number": 428
+            },
+            {
+              "name": "Channel 429",
+              "number": 429
+            },
+            {
+              "name": "Channel 430",
+              "number": 430
+            },
+            {
+              "name": "Channel 431",
+              "number": 431
+            },
+            {
+              "name": "Channel 432",
+              "number": 432
+            },
+            {
+              "name": "Channel 433",
+              "number": 433
+            },
+            {
+              "name": "Channel 434",
+              "number": 434
+            },
+            {
+              "name": "Channel 435",
+              "number": 435
+            },
+            {
+              "name": "Channel 436",
+              "number": 436
+            },
+            {
+              "name": "Channel 437",
+              "number": 437
+            },
+            {
+              "name": "Channel 438",
+              "number": 438
+            },
+            {
+              "name": "Channel 439",
+              "number": 439
+            },
+            {
+              "name": "Channel 440",
+              "number": 440
+            },
+            {
+              "name": "Channel 441",
+              "number": 441
+            },
+            {
+              "name": "Channel 442",
+              "number": 442
+            },
+            {
+              "name": "Channel 443",
+              "number": 443
+            },
+            {
+              "name": "Channel 444",
+              "number": 444
+            },
+            {
+              "name": "Channel 445",
+              "number": 445
+            },
+            {
+              "name": "Channel 446",
+              "number": 446
+            },
+            {
+              "name": "Channel 447",
+              "number": 447
+            },
+            {
+              "name": "Channel 448",
+              "number": 448
+            },
+            {
+              "name": "Channel 449",
+              "number": 449
+            },
+            {
+              "name": "Channel 450",
+              "number": 450
+            },
+            {
+              "name": "Channel 451",
+              "number": 451
+            },
+            {
+              "name": "Channel 452",
+              "number": 452
+            },
+            {
+              "name": "Channel 453",
+              "number": 453
+            },
+            {
+              "name": "Channel 454",
+              "number": 454
+            },
+            {
+              "name": "Channel 455",
+              "number": 455
+            },
+            {
+              "name": "Channel 456",
+              "number": 456
+            },
+            {
+              "name": "Channel 457",
+              "number": 457
+            },
+            {
+              "name": "Channel 458",
+              "number": 458
+            },
+            {
+              "name": "Channel 459",
+              "number": 459
+            },
+            {
+              "name": "Channel 460",
+              "number": 460
+            },
+            {
+              "name": "Channel 461",
+              "number": 461
+            },
+            {
+              "name": "Channel 462",
+              "number": 462
+            },
+            {
+              "name": "Channel 463",
+              "number": 463
+            },
+            {
+              "name": "Channel 464",
+              "number": 464
+            },
+            {
+              "name": "Channel 465",
+              "number": 465
+            },
+            {
+              "name": "Channel 466",
+              "number": 466
+            },
+            {
+              "name": "Channel 467",
+              "number": 467
+            },
+            {
+              "name": "Channel 468",
+              "number": 468
+            },
+            {
+              "name": "Channel 469",
+              "number": 469
+            },
+            {
+              "name": "Channel 470",
+              "number": 470
+            },
+            {
+              "name": "Channel 471",
+              "number": 471
+            },
+            {
+              "name": "Channel 472",
+              "number": 472
+            },
+            {
+              "name": "Channel 473",
+              "number": 473
+            },
+            {
+              "name": "Channel 474",
+              "number": 474
+            },
+            {
+              "name": "Channel 475",
+              "number": 475
+            },
+            {
+              "name": "Channel 476",
+              "number": 476
+            },
+            {
+              "name": "Channel 477",
+              "number": 477
+            },
+            {
+              "name": "Channel 478",
+              "number": 478
+            },
+            {
+              "name": "Channel 479",
+              "number": 479
+            },
+            {
+              "name": "Channel 480",
+              "number": 480
+            },
+            {
+              "name": "Channel 481",
+              "number": 481
+            },
+            {
+              "name": "Channel 482",
+              "number": 482
+            },
+            {
+              "name": "Channel 483",
+              "number": 483
+            },
+            {
+              "name": "Channel 484",
+              "number": 484
+            },
+            {
+              "name": "Channel 485",
+              "number": 485
+            },
+            {
+              "name": "Channel 486",
+              "number": 486
+            },
+            {
+              "name": "Channel 487",
+              "number": 487
+            },
+            {
+              "name": "Channel 488",
+              "number": 488
+            },
+            {
+              "name": "Channel 489",
+              "number": 489
+            },
+            {
+              "name": "Channel 490",
+              "number": 490
+            },
+            {
+              "name": "Channel 491",
+              "number": 491
+            },
+            {
+              "name": "Channel 492",
+              "number": 492
+            },
+            {
+              "name": "Channel 493",
+              "number": 493
+            },
+            {
+              "name": "Channel 494",
+              "number": 494
+            },
+            {
+              "name": "Channel 495",
+              "number": 495
+            },
+            {
+              "name": "Channel 496",
+              "number": 496
+            },
+            {
+              "name": "Channel 497",
+              "number": 497
+            },
+            {
+              "name": "Channel 498",
+              "number": 498
+            },
+            {
+              "name": "Channel 499",
+              "number": 499
+            },
+            {
+              "name": "Channel 500",
+              "number": 500
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

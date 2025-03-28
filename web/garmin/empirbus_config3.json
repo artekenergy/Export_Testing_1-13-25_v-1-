@@ -1,0 +1,10 @@
+{
+  "id": "9c216ef0-0b63-11f0-b769-ef035493c6c1",
+  "path": "index3.html",
+  "title": "New Application 3",
+  "icon": "/images/icon-default.png",
+  "devices": [
+    "APP"
+  ],
+  "main": false
+}

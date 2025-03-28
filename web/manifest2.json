@@ -1,0 +1,12 @@
+{
+  "short_name": "Switching Settings",
+  "name": "Switching Settings",
+  "icons": [
+    {
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index2.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}

@@ -1,0 +1,90 @@
+{
+  "apiGuid": "cff30bb8-c983-4cae-ad84-a152edbac8a6",
+  "masterChecksum": 2352823634,
+  "clients": [
+    {
+      "clientGuid": "5c3e51b7-0d6a-497d-bfb0-71beaed8e526",
+      "channels": [
+        {
+          "channelIdentifier": 109,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Victron: Inv/Cha On/Off"
+            }
+          ],
+          "misc": ""
+        },
+        {
+          "channelIdentifier": 54,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Ch 4: PBC"
+            }
+          ],
+          "misc": ""
+        },
+        {
+          "channelIdentifier": 33,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Ch 2: Lt Ext PBC"
+            }
+          ],
+          "misc": ""
+        },
+        {
+          "channelIdentifier": 7,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Settings: Ch 1 Off"
+            }
+          ],
+          "misc": ""
+        },
+        {
+          "channelIdentifier": 2,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Channel 2"
+            }
+          ],
+          "misc": ""
+        },
+        {
+          "channelIdentifier": 6,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Channel 1: PBC"
+            }
+          ],
+          "misc": "RV_ASR_TARGET_LIGHTS_RV_ASR_ZONE_BATHROOM_RV_ASR_ACTION_ON:RV_ASR_TARGET_LIGHTS_RV_ASR_ZONE_BATHROOM_RV_ASR_ACTION_OFF"
+        }
+      ]
+    },
+    {
+      "clientGuid": "1bb5cd61-a0b3-4368-8d4e-247a9e744c3c",
+      "channels": [
+        {
+          "channelIdentifier": 2,
+          "displayName": [
+            {
+              "symbol": "default",
+              "description": "Channel 2"
+            }
+          ],
+          "misc": ""
+        }
+      ]
+    },
+    {
+      "clientGuid": "d5813e38-54d2-4ac0-b288-76b811cd59be",
+      "channels": []
+    }
+  ]
+}

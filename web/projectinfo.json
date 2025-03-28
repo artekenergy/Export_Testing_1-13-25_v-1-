@@ -1,0 +1,15 @@
+{
+  "projectTitle": "ServPlus",
+  "netlistChecksum": "2352823634",
+  "empirBusStudioConfigFileId": "bd737cbf-7476-4bc3-ad3a-0195b5712524",
+  "empirBusStudioConfigFileVersion": "+",
+  "projectFileId": "3f232b7e-4f8b-4ba6-880f-01951601876d",
+  "projectFileVersion": "+",
+  "exportGuid": "",
+  "wduWebVersion": "3.2.2",
+  "graphicsToolVersion": "1.62.2",
+  "buildEnvironment": "Production",
+  "targetConfiguration": "test",
+  "targetPlatform": "WDU",
+  "targetPlatformVersion": "3.0.0"
+}

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Remote Control</title>
+    <style>
+      @font-face {
+        font-family: "Cy-ExtraBold";
+        src: url("fonts/Cy-ExtraBold.woff2") format("woff2"),
+          url("fonts/Cy-ExtraBold.woff") format("woff"),
+          url("fonts/Cy-ExtraBold.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* Base styles */
+      button,
+      .tab-button,
+      .toggle-btn,
+      .momentary-btn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        outline: none;
+      }
+      body {
+        background-color: #2f445c;
+        font-family: "Segoe UI", Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #363936;
+      }
+
+      /* Modern Card Styling */
+      .control-group {
+        border: none;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      /* Headings */
+      h2 {
+        margin-top: 0;
+        color: #2f445c;
+        font-weight: 500;
+        border-bottom: 2px solid #e5e0e6;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+      }
+
+      /* Form Elements */
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #e5e0e6;
+        border-radius: 4px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      label {
+        font-weight: 500;
+        margin-right: 5px;
+      }
+
+      /* Button Styling */
+      button {
+        background-color: #2f445c;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+
+      button:active {
+        transform: scale(0.97);
+      }
+
+      /* Connection Status */
+      .connection-status {
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .connected {
+        background-color: #dff0d8;
+        color: #3c763d;
+      }
+
+      .disconnected {
+        background-color: #f2dede;
+        color: #a94442;
+      }
+
+      /* Slider Container */
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+      }
+
+      /* Modern Slider */
+      .slider {
+        flex-grow: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        background: #e5e0e6;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #2f445c;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .slider::-webkit-slider-thumb:hover {
+        background: #3a5474;
+      }
+
+      /* Log Styling */
+      .log {
+        height: 200px;
+        overflow-y: auto;
+        border: none;
+        padding: 15px;
+        margin-top: 20px;
+        font-family: "Consolas", monospace;
+        background-color: #363936;
+        color: #e5e0e6;
+        border-radius: 6px;
+        line-height: 1.5;
+      }
+
+      /* Tab Navigation */
+      .tab-navigation {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: #2f445c;
+        border-top: 2px solid #e5e0e6;
+        padding: 8px 0;
+        margin-bottom: 0;
+        z-index: 1000;
+      }
+
+      .tab-button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        padding: 8px;
+        background-color: transparent;
+      }
+
+      .tab-button .icon {
+        width: 100px;
+        height: 100px;
+        transition: opacity 0.3s;
+      }
+
+      .tab-button .icon.active {
+        display: none;
+      }
+
+      .tab-button .icon.inactive {
+        display: block;
+      }
+
+      .tab-button.active .icon.active {
+        display: block;
+      }
+
+      .tab-button.active .icon.inactive {
+        display: none;
+      }
+
+      .header {
+        font-family: Cy-ExtraBold;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: #e5e0e6 2px solid; /* Add a bottom border to the header */
+      }
+
+      .temps {
+        display: flex;
+        gap: 20px; /* Space between Interior and Exterior temps */
+      }
+
+      .temp-value,
+      .time-value {
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        padding-right: 10px; /* Add some padding to the right for spacing */
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.3s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Toggle and Momentary Buttons */
+      .toggle-btn,
+      .momentary-btn {
+        background-color: #e5e0e6;
+        color: #363936;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: all 0.2s;
+        font-weight: 500;
+      }
+
+      .toggle-btn:hover,
+      .momentary-btn:hover {
+        background-color: #d0ccd2;
+      }
+
+      .toggle-btn.active,
+      .momentary-btn.active {
+        background-color: #2f445c;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="temps">
+        <span class="temp-value">Interior: 72°F</span>
+        <span class="temp-value">Exterior: 65°F</span>
+      </div>
+      <div class="time-to-go">
+        <span class="time-value">Time To Go: 3:42</span>
+      </div>
+    </div>
+
+    <div class="tab-content active" id="connection-tab">
+      <div class="control-group">
+        <h2>Connection</h2>
+        <div>
+          <label for="ws-host">Host:</label>
+          <input type="text" id="ws-host" value="172.16.11.7" />
+
+          <label for="ws-port">Port:</label>
+          <input type="text" id="ws-port" value="8888" />
+
+          <button id="connect-btn">Connect</button>
+          <button id="disconnect-btn">Disconnect</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggle buttons tab -->
+    <div class="tab-content" id="toggle-tab">
+      <div class="control-group">
+        <h2>Toggle Buttons</h2>
+        <div>
+          <button class="toggle-btn" data-id="1">Button 1</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="momentary-tab">
+      <div class="control-group">
+        <h2>Momentary Buttons</h2>
+        <div>
+          <button class="momentary-btn" data-id="2">Button 2</button>
+          <button class="momentary-btn" data-id="3">Button 3</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider control tab -->
+    <div class="tab-content" id="slider-tab">
+      <div class="control-group">
+        <h2>Slider Control</h2>
+        <div class="slider-container">
+          <input
+            type="range"
+            id="slider-2"
+            class="slider"
+            min="0"
+            max="100"
+            value="50"
+          />
+          <span id="slider-value">50</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logs tab -->
+    <div class="tab-content" id="logs-tab">
+      <div class="control-group">
+        <h2>Message Log</h2>
+        <div id="log" class="log"></div>
+      </div>
+    </div>
+
+    <div class="tab-navigation">
+      <button class="tab-button active" data-tab="connection">
+        <img
+          src="images/icons/home-active.png"
+          class="icon active"
+          alt="Connection"
+        />
+        <img
+          src="images/icons/home.png"
+          class="icon inactive"
+          alt="Connection"
+        />
+      </button>
+      <button class="tab-button" data-tab="toggle">
+        <img
+          src="images/icons/power-active.png"
+          class="icon active"
+          alt="Toggle Buttons"
+        />
+        <img
+          src="images/icons/power.png"
+          class="icon inactive"
+          alt="Toggle Buttons"
+        />
+      </button>
+      <button class="tab-button" data-tab="momentary">
+        <img
+          src="images/icons/hvac-active.png"
+          class="icon active"
+          alt="Momentary Buttons"
+        />
+        <img
+          src="images/icons/hvac.png"
+          class="icon inactive"
+          alt="Momentary Buttons"
+        />
+      </button>
+      <button class="tab-button" data-tab="slider">
+        <img
+          src="images/icons/lighting-active.png"
+          class="icon active"
+          alt="Slider Control"
+        />
+        <img
+          src="images/icons/lighting.png"
+          class="icon inactive"
+          alt="Slider Control"
+        />
+      </button>
+      <button class="tab-button" data-tab="logs">
+        <img
+          src="images/icons/plumbing-active.png"
+          class="icon active"
+          alt="Logs"
+        />
+        <img src="images/icons/plumbing.png" class="icon inactive" alt="Logs" />
+      </button>
+    </div>
+
+    <script>
+      let socket = null;
+      const connectBtn = document.getElementById("connect-btn");
+      const disconnectBtn = document.getElementById("disconnect-btn");
+      const connectionStatus = document.getElementById("connection-status");
+      const toggleButtons = document.querySelectorAll(".toggle-btn");
+      const momentaryButtons = document.querySelectorAll(".momentary-btn");
+      const slider = document.getElementById("slider-2");
+      const sliderValue = document.getElementById("slider-value");
+      const sendSliderBtn = document.getElementById("send-slider");
+      const logElement = document.getElementById("log");
+
+      // Update slider value display
+      slider.addEventListener("input", () => {
+        sliderValue.textContent = slider.value;
+      });
+
+      connectBtn.addEventListener("click", () => {
+        const host = document.getElementById("ws-host").value;
+        const port = document.getElementById("ws-port").value;
+
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.close();
+        }
+
+        const wsUrl = `ws://${host}:${port}/ws`;
+        log(`Connecting to ${wsUrl}...`);
+
+        try {
+          socket = new WebSocket(wsUrl);
+
+          socket.onopen = () => {
+            connectionStatus.textContent = `Connected to ${wsUrl}`;
+            connectionStatus.className = "connection-status connected";
+            log("Connection established");
+
+            // Start heartbeat mechanism
+            startHeartbeat();
+          };
+
+          socket.onmessage = (event) => {
+            log(`Received: ${event.data}`);
+
+            try {
+              const message = JSON.parse(event.data);
+
+              // Respond to server heartbeat with the correct message format
+              if (
+                message.messagecmd === 5 &&
+                message.messagetype === 48 &&
+                message.size === 0
+              ) {
+                // This is the heartbeat/ping from server
+                sendPong();
+                log("Responding to server heartbeat");
+              }
+            } catch (e) {
+              // Not JSON or other error, ignore
+            }
+          };
+
+          socket.onclose = () => {
+            connectionStatus.textContent = "Disconnected";
+            connectionStatus.className = "connection-status disconnected";
+            log("Connection closed");
+            stopHeartbeat();
+          };
+
+          socket.onerror = (error) => {
+            connectionStatus.textContent = "Connection error";
+            connectionStatus.className = "connection-status disconnected";
+            log("Error: " + error);
+          };
+        } catch (error) {
+          log("Failed to connect: " + error);
+        }
+      });
+
+      // Disconnect WebSocket
+      disconnectBtn.addEventListener("click", () => {
+        if (socket) {
+          socket.close();
+          stopHeartbeat();
+        }
+      });
+
+      // Toggle buttons (stay on or off)
+      toggleButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const componentId = parseInt(btn.dataset.id);
+          const isActive = btn.classList.toggle("active");
+
+          sendToggleButtonCommand(componentId, isActive);
+        });
+      });
+
+      // Send toggle button command with correct format
+      function sendToggleButtonCommand(id, state) {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+          log("Not connected to WebSocket server");
+          return;
+        }
+
+        const command = {
+          messagetype: 17,
+          messagecmd: 0, // Changed from 1 to 0
+          size: 3,
+          data: [id, 0, state ? 3 : 5], // Changed from 1/0 to 3/5 for ON/OFF
+        };
+
+        log(`Sending toggle button ${id} command: ${state ? "ON" : "OFF"}`);
+        socket.send(JSON.stringify(command));
+      }
+
+      // Momentary buttons (brief press)
+      momentaryButtons.forEach((btn) => {
+        btn.addEventListener("mousedown", () => {
+          const componentId = parseInt(btn.dataset.id);
+          sendButtonCommand(componentId, true);
+          btn.classList.add("active");
+        });
+
+        btn.addEventListener("mouseup", () => {
+          const componentId = parseInt(btn.dataset.id);
+          sendButtonCommand(componentId, false);
+          btn.classList.remove("active");
+        });
+
+        // Add touch support for mobile devices
+        btn.addEventListener("touchstart", (e) => {
+          e.preventDefault(); // Prevent scrolling
+          const componentId = parseInt(btn.dataset.id);
+          sendButtonCommand(componentId, true);
+          btn.classList.add("active");
+        });
+
+        btn.addEventListener("touchend", (e) => {
+          e.preventDefault(); // Prevent scrolling
+          const componentId = parseInt(btn.dataset.id);
+          sendButtonCommand(componentId, false);
+          btn.classList.remove("active");
+        });
+      });
+
+      // Send slider value
+      slider.addEventListener("input", () => {
+        sliderValue.textContent = slider.value;
+
+        // Send the slider value immediately when adjusted
+        const value = parseInt(slider.value);
+        sendSliderCommand(2, value);
+      });
+
+      function connectWebSocket() {
+        const host = document.getElementById("ws-host").value;
+        const port = document.getElementById("ws-port").value;
+
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.close();
+        }
+
+        const wsUrl = `ws://${host}:${port}/ws`;
+        log(`Connecting to ${wsUrl}...`);
+
+        try {
+          socket = new WebSocket(wsUrl);
+
+          socket.onopen = () => {
+            connectionStatus.textContent = `Connected to ${wsUrl}`;
+            connectionStatus.className = "connection-status connected";
+            log("Connection established");
+
+            // Start heartbeat mechanism
+            startHeartbeat();
+          };
+
+          socket.onmessage = (event) => {
+            log(`Received: ${event.data}`);
+
+            try {
+              const message = JSON.parse(event.data);
+
+              // Respond to server heartbeat with the correct message format
+              if (
+                message.messagecmd === 5 &&
+                message.messagetype === 48 &&
+                message.size === 0
+              ) {
+                // This is the heartbeat/ping from server
+                sendPong();
+                log("Responding to server heartbeat");
+              }
+            } catch (e) {
+              // Not JSON or other error, ignore
+            }
+          };
+
+          socket.onclose = () => {
+            connectionStatus.textContent = "Disconnected";
+            connectionStatus.className = "connection-status disconnected";
+            log("Connection closed");
+            stopHeartbeat();
+          };
+
+          socket.onerror = (error) => {
+            connectionStatus.textContent = "Connection error";
+            connectionStatus.className = "connection-status disconnected";
+            log("Error: " + error);
+          };
+        } catch (error) {
+          log("Failed to connect: " + error);
+        }
+      }
+
+      // Update the connect button to use the new function
+      connectBtn.addEventListener("click", connectWebSocket);
+
+      // Auto-connect when the page loads
+      document.addEventListener("DOMContentLoaded", connectWebSocket);
+
+      // Send button command
+      function sendButtonCommand(id, state) {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+          log("Not connected to WebSocket server");
+          return;
+        }
+
+        const command = {
+          messagetype: 17,
+          messagecmd: 1,
+          size: 3,
+          data: [id, 0, state ? 1 : 0], // Always use 3 as first value, regardless of button ID
+        };
+
+        log(`Sending button ${id} command: ${state ? "ON" : "OFF"}`);
+        socket.send(JSON.stringify(command));
+      }
+
+      // Send slider command
+      function sendSliderCommand(id, value) {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+          log("Not connected to WebSocket server");
+          return;
+        }
+
+        const command = {
+          messagetype: 17,
+          messagecmd: 3,
+          size: 5,
+          data: [id, 0, 0, value & 0xff, (value >> 8) & 0xff],
+        };
+
+        log(`Setting slider ${id} to value: ${value}`);
+        socket.send(JSON.stringify(command));
+      }
+
+      let heartbeatInterval = null;
+      let heartbeatTimer = null;
+      const HEARTBEAT_INTERVAL = 5000; // Send heartbeat every 5 seconds
+
+      function startHeartbeat() {
+        stopHeartbeat(); // Clear any existing interval
+
+        heartbeatInterval = setInterval(() => {
+          if (socket && socket.readyState === WebSocket.OPEN) {
+            sendHeartbeat();
+          }
+        }, HEARTBEAT_INTERVAL);
+      }
+
+      function stopHeartbeat() {
+        if (heartbeatInterval) {
+          clearInterval(heartbeatInterval);
+          heartbeatInterval = null;
+        }
+
+        if (heartbeatTimer) {
+          clearTimeout(heartbeatTimer);
+          heartbeatTimer = null;
+        }
+      }
+
+      function resetHeartbeatTimer() {
+        // Reset the heartbeat timer when any message is received
+        if (heartbeatTimer) {
+          clearTimeout(heartbeatTimer);
+        }
+      }
+
+      function sendHeartbeat() {
+        // Send a heartbeat message to keep the connection alive
+        const heartbeat = {
+          messagetype: 48, // Using the same message type as server
+          messagecmd: 5, // This appears to be a heartbeat/status command
+          size: 0,
+          data: [],
+        };
+
+        log("Sending heartbeat");
+        socket.send(JSON.stringify(heartbeat));
+      }
+
+      function sendPong() {
+        // Format must match exactly what the working implementation sends
+        const pong = {
+          messagetype: 128,
+          messagecmd: 0,
+          size: 1,
+          data: [0],
+        };
+
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.send(JSON.stringify(pong));
+        }
+      }
+
+      // Add message to log
+      function log(message) {
+        const entry = document.createElement("div");
+        entry.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+        logElement.appendChild(entry);
+        logElement.scrollTop = logElement.scrollHeight;
+      }
+
+      // Add this to your existing JavaScript
+      function setupTabs() {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Deactivate all tabs
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Activate the selected tab
+            button.classList.add("active");
+            const tabId = button.getAttribute("data-tab");
+            document.getElementById(`${tabId}-tab`).classList.add("active");
+          });
+        });
+      }
+
+      // Initialize tabs when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        connectWebSocket(); // Auto-connect
+        setupTabs(); // Setup tab navigation
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "id": "3e4d95d0-d1e6-11ef-8786-df892bc8164b",
+  "path": "index1.html",
+  "title": "Digital Switching",
+  "icon": "/images/icon-default.png",
+  "devices": [
+    "APP"
+  ],
+  "main": false
+}

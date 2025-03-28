@@ -1,0 +1,2108 @@
+[
+  {
+    "signalId": 2,
+    "description": "Channel 2",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 22,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 3,
+    "description": "Channel 1: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 4,
+    "description": "Channel 1: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 5,
+    "description": "Channel 1: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 6,
+    "description": "Channel 1: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 7,
+    "description": "Settings: Ch 1 Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 8,
+    "description": "Settings: Ch 1 Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 9,
+    "description": "Settings: Ch 1 Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 11,
+    "description": "Settings: Ch 1 Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 12,
+    "description": "Settings: Ch 1 Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 13,
+    "description": "Settings: Ch 1 Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 14,
+    "description": "Settings: Ch 1 Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 15,
+    "description": "Settings: Ch 1 PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 16,
+    "description": "Settings: Ch 1 Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 17,
+    "description": "Ch. 1 Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 18,
+    "description": "Ch. 1 Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 19,
+    "description": "Ch 2: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 20,
+    "description": "Channel 2: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 21,
+    "description": "Ch 2: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 22,
+    "description": "Ch 2: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 23,
+    "description": "Settings: Ch 2: Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 24,
+    "description": "Settings: Ch 2: Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 25,
+    "description": "Settings: Ch 2: Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 27,
+    "description": "Settings: Ch 2: Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 28,
+    "description": "Settings: Ch 2: Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 29,
+    "description": "Settings: Ch 2: Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 30,
+    "description": "Settings: Ch 2: Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 31,
+    "description": "Settings: Ch 2: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 32,
+    "description": "Settings: Ch 2: Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 33,
+    "description": "Ch 2: Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 34,
+    "description": "Ch 2: Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 35,
+    "description": "Ch 3: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 36,
+    "description": "Ch 3: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 37,
+    "description": "Ch 3: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 38,
+    "description": "Ch 3: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 39,
+    "description": "Settings: Ch 3 Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 40,
+    "description": "Settings: Ch 3 Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 41,
+    "description": "Settings: Ch 3 Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 43,
+    "description": "Settings: Ch 3 Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 44,
+    "description": "Settings: Ch 3 Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 45,
+    "description": "Settings: Ch 3 Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 46,
+    "description": "Settings: Ch 3 Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 47,
+    "description": "Settings: Ch 3 PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 48,
+    "description": "Settings: Ch 3 Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 49,
+    "description": "Ch 3: Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 50,
+    "description": "Ch 3: Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 51,
+    "description": "Ch 4: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 52,
+    "description": "Ch 4: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 53,
+    "description": "Ch 4: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 54,
+    "description": "Ch 4: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 55,
+    "description": "Settings: Ch 4: Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 56,
+    "description": "Settings: Ch 4: Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 57,
+    "description": "Settings: Ch 4: Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 59,
+    "description": "Settings: Ch 4: Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 60,
+    "description": "Settings: Ch 4: Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 61,
+    "description": "Settings: Ch 4: Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 62,
+    "description": "Settings: Ch 4: Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 63,
+    "description": "Settings: Ch 4: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 64,
+    "description": "Settings: Ch 4: Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 65,
+    "description": "Ch 4: Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 66,
+    "description": "Ch 4: Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 67,
+    "description": "Ch 5: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 68,
+    "description": "Ch 5: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 69,
+    "description": "Ch 5: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 70,
+    "description": "Ch 5: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 71,
+    "description": "Settings: Ch 5 Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 72,
+    "description": "Settings: Ch 5 Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 73,
+    "description": "Settings: Ch 5 Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 75,
+    "description": "Settings: Ch 5 Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 76,
+    "description": "Settings: Ch 5 Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 77,
+    "description": "Settings: Ch 5 Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 78,
+    "description": "Settings: Ch 5 Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 79,
+    "description": "Settings: Ch 5 PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 80,
+    "description": "Settings: Ch 5 Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 81,
+    "description": "Ch 5: Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 82,
+    "description": "Ch 5: Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 83,
+    "description": "Ch 9: Mom",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 84,
+    "description": "Ch 9: Int. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 85,
+    "description": "Ch 9: Ext. DCU",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 86,
+    "description": "Ch 9: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 87,
+    "description": "Settings: Ch 9: Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 88,
+    "description": "Settings: Ch 9: Light",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 89,
+    "description": "Settings: Ch 9: Output",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 91,
+    "description": "Settings: Ch 9: Lt Dim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 92,
+    "description": "Settings: Ch 9: Lt Nondim",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 93,
+    "description": "Settings: Ch 9: Lt Interior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 94,
+    "description": "Settings: Ch 9: Lt Exterior",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 95,
+    "description": "Settings: Ch 9: PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 96,
+    "description": "Settings: Ch 9: Momentary",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 97,
+    "description": "Ch 9: Lt Ext PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 98,
+    "description": "Ch 9: Lt Int PBC",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 99,
+    "description": "Save Settings",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 100,
+    "description": "Reset Settings",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 1,
+    "description": "All Int Lts On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 22,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 10,
+    "description": "Settings: Ch 1 Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 26,
+    "description": "Settings: Ch 2: Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 42,
+    "description": "Settings: Ch 3 Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 58,
+    "description": "Settings: Ch 4: Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 74,
+    "description": "Settings: Ch 5 Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 90,
+    "description": "Settings: Ch 9: Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 230,
+    "description": "Settings Ch 1: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 231,
+    "description": "Settings Ch 2: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 232,
+    "description": "Settings Ch 3: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 233,
+    "description": "Settings Ch 4: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 234,
+    "description": "Settings Ch 5: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 235,
+    "description": "Settings Ch 6: Ramp On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 236,
+    "description": "All Ext Lts On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 22,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 101,
+    "description": "Victron: Leg 1 in AC Current",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 102,
+    "description": "Victron: Leg 1 In AC Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 103,
+    "description": "Victron: AC Input Limit Increase",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 104,
+    "description": "Victron: AC Input Limit Decrease",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 105,
+    "description": "Victron: Solar Roof Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 106,
+    "description": "Victron: Leg 1 AC Out Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 107,
+    "description": "Victron: Leg 1 AC Out Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 108,
+    "description": "Victron: AC Limit",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 109,
+    "description": "Victron: Inv/Cha On/Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 1
+  },
+  {
+    "signalId": 110,
+    "description": "Victron: Charger Only",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 1
+  },
+  {
+    "signalId": 111,
+    "description": "Victron: Charge Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 112,
+    "description": "Victron: Charge Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 113,
+    "description": "Victron: Invert",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 114,
+    "description": "Victron: AC Passthrough",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 115,
+    "description": "Victron: Inverter Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 116,
+    "description": "Victron: Solar Bulk",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 117,
+    "description": "Victron: Solar Roof Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 118,
+    "description": "Wakespeed: Temperature",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 119,
+    "description": "Wakespeed: Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 120,
+    "description": "Wakespeed: Bulk",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 121,
+    "description": "Wakespeed: Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 122,
+    "description": "Victron: Solar Aux Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 123,
+    "description": "Victron: Solar Aux Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 124,
+    "description": "Ext Zone 4: Passenger Side",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 125,
+    "description": "Ext Zone 4: Driver Side",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 126,
+    "description": "Victron: Battery Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 127,
+    "description": "Victron: Battery Temperarture",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 22,
+    "dataType": 3,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 128,
+    "description": "Victron: State of Charge",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 129,
+    "description": "VIctron: Time Remaining",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 23,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 130,
+    "description": "Victron: Battery Amperage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 6,
+    "dataType": 1,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 131,
+    "description": "Starter Battery: Voltage",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 27,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 132,
+    "description": "Plugged In",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 133,
+    "description": "Rixen's: Fan Speed Increase",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 134,
+    "description": "Rixen's: Fan Speed Decrease",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 135,
+    "description": "Channel 338",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 136,
+    "description": "Rixen's: Fan On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 139,
+    "description": "Int Temp Set Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 140,
+    "description": "Rixen's: Floor Heat On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 141,
+    "description": "Rixen's: Furnace On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 142,
+    "description": "Rixen's: Electric On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 143,
+    "description": "Rixen's: Engine On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 144,
+    "description": "Rixen's: Hot Water On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 145,
+    "description": "Rixen's: Aux On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 146,
+    "description": "CNC: Ac On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 147,
+    "description": "CNC: Blower Only",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 148,
+    "description": "CNC: High",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 149,
+    "description": "CNC: Medium",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 150,
+    "description": "CNC: Low",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 151,
+    "description": "Int Temp Sensor Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 22,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 152,
+    "description": "Recpro: AC On/Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 153,
+    "description": "RecPro: Fan Low",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 154,
+    "description": "RecPro: Fan Med",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 155,
+    "description": "RecPro: Fan High",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 156,
+    "description": "Recpro: Fan Only",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 157,
+    "description": "Cel",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 2,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 158,
+    "description": "MaxxFan 1: Increase Fan Speed ",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 159,
+    "description": "MaxxFan 1: Decrease Fan Speed",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 160,
+    "description": "MaxxFan 1: Fan Speed by %",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 161,
+    "description": "MaxxFan 1:: On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 162,
+    "description": "MaxxFan 1: Exhaust fan direction button",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 163,
+    "description": "MaxxFan 1: Intake fan direction button",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 164,
+    "description": "MaxxFan 2: Increase Fan Speed ",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 165,
+    "description": "MaxxFan 2: Decrease Fan Speed",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 166,
+    "description": "MaxxFan 2: Fan Speed by %",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 167,
+    "description": "MaxxFan 2: On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 168,
+    "description": "MaxxFan 2 Exhaust fan direction button",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 169,
+    "description": "MaxxFan 2 Intake fan direction button",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 170,
+    "description": "Heat Pump On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 238,
+    "description": "Channel 238",
+    "type": 0,
+    "channelType": 3,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 171,
+    "description": "HVAC Setting: 1 Fan ",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 172,
+    "description": "1 Fan",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 173,
+    "description": "2 Fans",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 174,
+    "description": "HVAC Setting: Ventilation On/Off",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 175,
+    "description": "HVAC Settings: AC Up",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 176,
+    "description": "HVAC Settings: AC Down",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 177,
+    "description": "CNC",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 178,
+    "description": "RecPro",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 179,
+    "description": "Channel 379",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 180,
+    "description": "Channel 380",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 181,
+    "description": "Channel 381",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 182,
+    "description": "Channel 382",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 183,
+    "description": "Channel 383",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 184,
+    "description": "Channel 384",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 185,
+    "description": "Channel 385",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 186,
+    "description": "Channel 386",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 187,
+    "description": "Channel 387",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 188,
+    "description": "Channel 388",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 189,
+    "description": "Channel 389",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 190,
+    "description": "Channel 390",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 191,
+    "description": "Channel 391",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 192,
+    "description": "Channel 392",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 193,
+    "description": "HVAC Setting: Heater On/Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 194,
+    "description": "HVAC Setting: Floor Option",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 195,
+    "description": "RecPro Heat Pump",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 196,
+    "description": "HVAC Setting: Fan Option",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 197,
+    "description": "HVAC Setting: Engine Option",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 198,
+    "description": "HVAC Setting: Electric Option",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 199,
+    "description": "HVAC Settings: Aux On/Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 200,
+    "description": "HVAC Settings: AC On/Off",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 201,
+    "description": "Int Zone 2: Closet",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 202,
+    "description": "Tank 2 Signal Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 203,
+    "description": "Tank 1 Signal Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 204,
+    "description": "Tank 1 Up",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 205,
+    "description": "Tank 1 Down",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 206,
+    "description": "Tank 2 Up",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 207,
+    "description": "Tank 2 Down",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 208,
+    "description": "Tank 4 Signal Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 209,
+    "description": "Tank 3 Signal Value",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 14,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 210,
+    "description": "Tank 3 Up",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 211,
+    "description": "Tank 3 Down",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 212,
+    "description": "Tank 4 Up",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 213,
+    "description": "Tank 4 Down",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 214,
+    "description": "Tank 1",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 215,
+    "description": "Tank 3",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 216,
+    "description": "Tank 2",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 217,
+    "description": "Tank 4",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 218,
+    "description": "Tank No Increase",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 219,
+    "description": "No tanks Decrease",
+    "type": 0,
+    "channelType": 1,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 221,
+    "description": "No. of tanks",
+    "type": 0,
+    "channelType": 5,
+    "dataItemFormatType": 0,
+    "dataType": 4,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 222,
+    "description": "Seetings: Primary Solar",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 223,
+    "description": "Settings: Aux Solar",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 224,
+    "description": "Settings: Orion Xs",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 225,
+    "description": "Settings: Wakespeed",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 226,
+    "description": "Power: Primary Solar Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 227,
+    "description": "Secondary Solar: Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 228,
+    "description": "Orion XS: ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  },
+  {
+    "signalId": 229,
+    "description": "WS On/Off Ind",
+    "type": 0,
+    "channelType": 0,
+    "dataItemFormatType": 0,
+    "dataType": 0,
+    "channelSettingType": 0
+  }
+]

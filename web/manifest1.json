@@ -1,0 +1,12 @@
+{
+  "short_name": "Digital Switching",
+  "name": "Digital Switching",
+  "icons": [
+    {
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index1.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}
