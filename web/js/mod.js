@@ -53,19 +53,44 @@
       socket.onmessage = (event) => {
         log(`Received: ${event.data}`)
         try {
-          const message = JSON.parse(event.data)
-          // Handle heartbeat ping from server: (messagecmd: 5, messagetype: 48, size: 0)
+          const packet = JSON.parse(event.data)
+
+          // Handle heartbeat ping from server
           if (
-            message.messagecmd === 5 &&
-            message.messagetype === 48 &&
-            message.size === 0
+            packet.messagecmd === 5 &&
+            packet.messagetype === 48 &&
+            packet.size === 0
           ) {
             sendPong()
             log("Responding to server heartbeat")
+            return
           }
-          // Add other message handlers as needed…
+
+          // Handle NMEA 2000 data
+          if (packet.messagetype === 82) {
+            // NMEA message type
+            const decodedData = decoder.decodeN2KDataItem(packet)
+            if (decodedData) {
+              log(
+                `Decoded NMEA Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+              )
+              handleDecodedSignal(decodedData)
+            }
+          }
+
+          // Handle MFD channel data
+          if (packet.messagetype === 16) {
+            // MFD status
+            const decodedData = decoder.decodeMFDChannelItem(packet)
+            if (decodedData) {
+              log(
+                `Decoded MFD Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+              )
+              handleDecodedSignal(decodedData)
+            }
+          }
         } catch (e) {
-          // Fail silently if message is not valid JSON
+          console.error("Error processing WebSocket message:", e)
         }
       }
 
@@ -111,6 +136,264 @@
     if (!isSocketOpen()) return
     const pong = { messagetype: 128, messagecmd: 0, size: 1, data: [0] }
     socket.send(JSON.stringify(pong))
+  }
+
+  const DataTypes = {
+    int8: 5,
+    uint8: 4,
+    int16: 3,
+    uint16: 2,
+    int32: 1,
+    uint32: 0,
+    int64: 7,
+    uint64: 6,
+  }
+
+  // Add the decoder class
+  class SignalDecoder {
+    constructor() {
+      this.signalInfoMap = new Map()
+    }
+
+    decodeN2KDataItem(packet) {
+      if (packet.messagecmd === 1) {
+        // statusUpdate
+        const signalId = packet.data[0] | (packet.data[1] << 8)
+        return {
+          signalId: signalId,
+          valueTypeIdentifier: packet.data[3] | (packet.data[4] << 8),
+          value: this._getValue(signalId, packet.data, 5),
+        }
+      }
+      return null
+    }
+
+    _getValue(signalId, data, offset) {
+      const array = new Uint8Array(data)
+      const view = new DataView(array.buffer)
+
+      // Get data type from signal info or default to int32
+      const dataType =
+        this.signalInfoMap.get(signalId)?.dataType || DataTypes.int32
+
+      switch (dataType) {
+        case DataTypes.int8:
+          return view.getInt8(offset)
+        case DataTypes.uint8:
+          return view.getUint8(offset)
+        case DataTypes.int16:
+          return view.getInt16(offset, true)
+        case DataTypes.uint16:
+          return view.getUint16(offset, true)
+        case DataTypes.int32:
+          return view.getInt32(offset, true)
+        case DataTypes.uint32:
+          return view.getUint32(offset, true)
+        case DataTypes.int64:
+          return Number(view.getBigInt64(offset, true))
+        case DataTypes.uint64:
+          return Number(view.getBigUint64(offset, true))
+      }
+    }
+  }
+
+  // Create an instance of the decoder
+  const decoder = new SignalDecoder()
+
+  // Modify your existing WebSocket onmessage handler
+  socket.onmessage = (event) => {
+    log(`Received: ${event.data}`)
+    try {
+      const packet = JSON.parse(event.data)
+
+      // Handle heartbeat ping from server
+      if (
+        packet.messagecmd === 5 &&
+        packet.messagetype === 48 &&
+        packet.size === 0
+      ) {
+        sendPong()
+        log("Responding to server heartbeat")
+        return
+      }
+
+      // Handle NMEA 2000 data
+      if (packet.messagetype === 82) {
+        // NMEA message type
+        const decodedData = decoder.decodeN2KDataItem(packet)
+        if (decodedData) {
+          log(
+            `Decoded NMEA Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+          )
+          handleDecodedSignal(decodedData)
+        }
+      }
+    } catch (e) {
+      console.error("Error processing WebSocket message:", e)
+    }
+  }
+
+  // Add a handler for decoded signals
+  function handleDecodedSignal(signal) {
+    // Track the signal
+    signalMonitor.trackSignal(
+      signal.signalId,
+      signal.value,
+      signal.valueTypeIdentifier ? "NMEA" : "MFD"
+    )
+
+    // Update signal in manager (existing code)
+    signalManager.updateSignal(signal.signalId, signal.value)
+    // Update UI elements based on signal ID and value
+    // Example:
+    const element = document.querySelector(
+      `[data-signal-id="${signal.signalId}"]`
+    )
+    if (element) {
+      if (element.classList.contains("signalvalue")) {
+        element.textContent = signal.value.toString()
+      } else if (element.classList.contains("toggle-btn")) {
+        element.classList.toggle("active", Boolean(signal.value))
+      }
+    }
+  }
+
+  // Add these utility functions
+  function showSignalMonitor() {
+    // Create or get monitor overlay
+    let monitorOverlay = document.getElementById("signal-monitor")
+    if (!monitorOverlay) {
+      monitorOverlay = document.createElement("div")
+      monitorOverlay.id = "signal-monitor"
+      monitorOverlay.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 9999;
+        `
+      document.body.appendChild(monitorOverlay)
+    }
+
+    // Update monitor content
+    function updateMonitor() {
+      const signals = signalMonitor.getAllSignals()
+      monitorOverlay.innerHTML = `
+            <h3>Active Signals (${signals.length})</h3>
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <th style="padding: 5px; border: 1px solid #444;">ID</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Value</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Type</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Updates</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Last Update</th>
+                </tr>
+                ${signals
+                  .map(
+                    (s) => `
+                    <tr>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.id
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.value
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.type
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.updateCount
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${s.timeSinceUpdate.toFixed(
+                          1
+                        )}s</td>
+                    </tr>
+                `
+                  )
+                  .join("")}
+            </table>
+        `
+    }
+
+    // Update every second
+    const monitorInterval = setInterval(updateMonitor, 1000)
+
+    // Add close button
+    const closeBtn = document.createElement("button")
+    closeBtn.textContent = "Close Monitor"
+    closeBtn.style.marginTop = "10px"
+    closeBtn.onclick = () => {
+      clearInterval(monitorInterval)
+      monitorOverlay.remove()
+    }
+    monitorOverlay.appendChild(closeBtn)
+  }
+
+  // Create signal manager instance
+  const signalManager = new SignalManager()
+
+  // Modify the existing handleDecodedSignal function
+  function handleDecodedSignal(signal) {
+    // Update signal in manager
+    signalManager.updateSignal(signal.signalId, signal.value)
+
+    // Update UI elements based on signal ID and value
+    const elements = document.querySelectorAll(
+      `[data-signal-id="${signal.signalId}"]`
+    )
+    elements.forEach((element) => {
+      if (element.classList.contains("signalvalue")) {
+        element.textContent = signal.value.toString()
+      } else if (element.classList.contains("toggle-btn")) {
+        element.classList.toggle("active", Boolean(signal.value))
+      } else if (element.classList.contains("slider")) {
+        element.value = signal.value
+        const valueDisplay = element.nextElementSibling
+        if (valueDisplay?.classList.contains("slider-value")) {
+          valueDisplay.textContent = `${signal.value}%`
+        }
+      }
+    })
+  }
+  // Signal monitoring and debugging
+  class SignalMonitor {
+    constructor() {
+      this.signals = new Map()
+      this.lastUpdateTime = new Map()
+    }
+
+    // Track incoming signal
+    trackSignal(signalId, value, type = "unknown") {
+      this.signals.set(signalId, {
+        value,
+        type,
+        lastUpdate: new Date(),
+        updateCount: (this.signals.get(signalId)?.updateCount || 0) + 1,
+      })
+    }
+
+    // Get all tracked signals
+    getAllSignals() {
+      return Array.from(this.signals.entries()).map(([id, data]) => ({
+        id,
+        ...data,
+        timeSinceUpdate: (new Date() - data.lastUpdate) / 1000,
+      }))
+    }
+
+    // Print signal summary to console
+    printSignalSummary() {
+      console.group("Active Signals Summary")
+      console.table(this.getAllSignals())
+      console.groupEnd()
+    }
   }
 
   // --------------------------
@@ -877,6 +1160,9 @@
   // --------------------------
   // Initialization on DOM Ready
   // --------------------------
+  document
+    .getElementById("show-monitor")
+    ?.addEventListener("click", showSignalMonitor)
   document.addEventListener("DOMContentLoaded", () => {
     setupMainTabs()
     setupHvacTabs()
