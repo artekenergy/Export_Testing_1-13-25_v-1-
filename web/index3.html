@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="images/artek_02.gif" />
+
     <title>WebSocket Remote Control</title>
   </head>
   <body>
@@ -57,23 +59,49 @@
       <!-- 1. Connection Tab -->
       <section class="tab-content active" id="connection-tab">
         <div class="home-page">
-          <!-- Status Messages Area -->
           <div class="status-messages">
             <h2>Status</h2>
             <div class="status-messages-items">
               <div class="status-messages-list">
                 <span class="status-house-battery">HOUSE BATTERY</span>
                 <span class="status-house-battery">Charge Source</span>
-                <span class="status-house-battery">Power Consumption</span>
-                <span class="status-house-battery">Charge Power</span>
+                <span class="status-house-battery">Consumption</span>
+                <span class="status-house-battery">Regeneration</span>
+                <span class="status-house-battery">Tank 1</span>
+                <span class="status-house-battery">Tank 2</span>
+                <span class="status-house-battery">Tank 3</span>
+                <span class="status-house-battery">Tank 4</span>
               </div>
               <div class="status-messages-list-values">
                 <span class="status-house-battery">100%</span>
-                <span class="status-charge-source">Solar</span>
-                <span class="status-power-consumption">50W</span>
-                <span class="status-power-consumption">125W</span>
+                <div class="charge-icons">
+                  <img
+                    class="charge-icon"
+                    src="images/icons/5-white.png"
+                    alt="Solar Charge"
+                  />
+                  <img
+                    class="charge-icon"
+                    src="images/icons/15-white.png"
+                    alt="Shore Charge"
+                  />
+                  <img
+                    class="charge-icon"
+                    src="images/icons/3-white.png"
+                    alt="Generator Charge"
+                  />
+                </div>
+                <span class="status-power-consumption">2.6A</span>
+                <span class="status-power-consumption">5.7A</span>
+                <span class="status-tank">75%</span>
+                <span class="status-tank">30%</span>
+                <span class="status-tank">45%</span>
+                <span class="status-tank">60%</span>
               </div>
             </div>
+          </div>
+          <div class="logo-container">
+            <!-- <img class="logo" src="images/truck.png" alt="Artek Logo"> -->
           </div>
         </div>
 
@@ -151,7 +179,7 @@
               </div>
               <div class="power-item">
                 <h2 class="power-label">MultiPlus</h2>
-                <div class="button-grid-2x2">
+                <div class="button-grid-2x2" id="multiplus-controls">
                   <button
                     class="pill-btn toggle-btn multiplus-btn"
                     data-id="12"
@@ -258,7 +286,6 @@
                       </svg>
                     </button>
                     <span class="control-value" id="ac-limit-value">30</span>
-                    <span class="unit">A</span>
                     <button class="control-btn" id="ac-limit-up">
                       <!-- SVG icon -->
                       <svg width="16" height="16" viewBox="0 0 24 24">
@@ -266,31 +293,35 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="preset-limits">
+                  <div class="control-value-container" id="preset-limits">
                     <button class="pill-btn preset-btn" data-value="10">
-                      10A
+                      <span class="pill-btn-text">10A</span>
                     </button>
                     <button class="pill-btn preset-btn" data-value="15">
-                      15A
+                      <span class="pill-btn-text">15A</span>
                     </button>
                     <button class="pill-btn preset-btn" data-value="20">
-                      20A
+                      <span class="pill-btn-text">20A</span>
                     </button>
                     <button class="pill-btn preset-btn" data-value="30">
-                      30A
+                      <span class="pill-btn-text">30A</span>
                     </button>
                     <button class="pill-btn preset-btn" data-value="50">
-                      50A
+                      <span class="pill-btn-text">50A</span>
                     </button>
                     <button class="pill-btn preset-btn" data-value="100">
-                      100A
+                      <span class="pill-btn-text">100A</span>
                     </button>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button class="pill-btn" id="cancel-limit">Cancel</button>
-                <button class="pill-btn" id="apply-limit">Set</button>
+                <button class="pill-btn" id="cancel-limit">
+                  <span class="pill-btn-text">Cancel</span>
+                </button>
+                <button class="pill-btn" id="apply-limit">
+                  <span class="pill-btn-text">Set</span>
+                </button>
               </div>
             </div>
           </div>
@@ -319,13 +350,22 @@
                 <div class="hvac-tab-content active" id="cooling-tab">
                   <div class="hvac-control-grid">
                     <div class="hvac-control-item" id="hot-water-aux">
-                      <button class="pill-btn toggle-btn" data-id="20">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Hot Water</span>
-                        </div>
+                      <h2>Hot Water</h2>
+                      <button class="round-btn toggle-btn" data-id="1">
+                        <img
+                          src="images/icons/16-white.png"
+                          class="icon inactive"
+                          alt="Icon"
+                        />
+                        <img
+                          src="images/icons/16-black.png"
+                          class="icon active"
+                          alt="Icon Active"
+                        />
                       </button>
                     </div>
                     <div class="hvac-control-item" id="heat-source">
+                      <h2>Heat Source</h2>
                       <button class="pill-btn toggle-btn" data-id="30">
                         <div class="pill-btn-content">
                           <span class="pill-btn-text">Furnace</span>
@@ -343,6 +383,7 @@
                       </button>
                     </div>
                     <div class="hvac-control-item" id="heat-distribution">
+                      <h2>Distribution</h2>
                       <button class="pill-btn toggle-btn" data-id="40">
                         <div class="pill-btn-content">
                           <span class="pill-btn-text">Floor</span>
@@ -353,11 +394,7 @@
                           <span class="pill-btn-text">Fan</span>
                         </div>
                       </button>
-                      <button class="pill-btn toggle-btn" data-id="42">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Aux Zone</span>
-                        </div>
-                      </button>
+
                       <div class="numeric-control">
                         <span class="control-label">Fan Speed</span>
                         <div class="control-value-container">
@@ -376,6 +413,11 @@
                           </button>
                         </div>
                       </div>
+                      <button class="pill-btn toggle-btn" data-id="42">
+                        <div class="pill-btn-content">
+                          <span class="pill-btn-text">Aux Zone</span>
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -383,6 +425,7 @@
                 <div class="hvac-tab-content" id="heating-tab">
                   <div class="hvac-control-grid">
                     <div class="hvac-control-item" id="ac-mode">
+                      <h2>Mode</h2>
                       <button class="pill-btn toggle-btn" data-id="24">
                         <div class="pill-btn-content">
                           <span class="pill-btn-text">Off</span>
@@ -400,6 +443,7 @@
                       </button>
                     </div>
                     <div class="hvac-control-item" id="ac-fan">
+                      <h2>Fan Control</h2>
                       <button class="pill-btn toggle-btn" data-id="22">
                         <div class="pill-btn-content">
                           <span class="pill-btn-text">Fan Only</span>
@@ -426,73 +470,107 @@
                 <!-- Ventilation Panel -->
                 <div class="hvac-tab-content" id="ventilation-tab">
                   <div class="hvac-control-grid">
-                    <div class="hvac-control-item" id="vent-1">
-                      <button class="pill-btn toggle-btn" data-id="60">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">On/Off</span>
-                        </div>
-                      </button>
-                      <button class="pill-btn toggle-btn" data-id="61">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Intake</span>
-                        </div>
-                      </button>
-                      <button class="pill-btn toggle-btn" data-id="62">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Exhaust</span>
-                        </div>
-                      </button>
-                      <div class="numeric-control">
-                        <span class="control-label">Fan Speed</span>
-                        <div class="control-value-container">
-                          <button class="control-btn" id="vent-fan-down">
-                            <svg width="16" height="16" viewBox="0 0 24 24">
-                              <path d="M7 10l5 5 5-5z" fill="#e5e0e6" />
-                            </svg>
+                    <div
+                      class="hvac-control-item two-column-control"
+                      id="vent-1"
+                    >
+                      <h2>Fan #1</h2>
+                      <div class="vent-controls-container">
+                        <!-- Left Column -->
+                        <div class="vent-column">
+                          <button class="pill-btn toggle-btn" data-id="60">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">On/Off</span>
+                            </div>
                           </button>
-                          <span class="control-value" id="vent-fan-value"
-                            >30%</span
-                          >
-                          <button class="control-btn" id="vent-fan-up">
-                            <svg width="16" height="16" viewBox="0 0 24 24">
-                              <path d="M7 14l5-5 5 5z" fill="#e5e0e6" />
-                            </svg>
+                          <button class="pill-btn toggle-btn" data-id="61">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">Intake</span>
+                            </div>
                           </button>
+                          <button class="pill-btn toggle-btn" data-id="62">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">Exhaust</span>
+                            </div>
+                          </button>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="vent-column">
+                          <div class="numeric-control">
+                            <span class="control-label">Fan Speed</span>
+                            <div class="control-value-container">
+                              <button class="control-btn" id="vent-fan-down">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                  <path d="M7 10l5 5 5-5z" fill="#e5e0e6" />
+                                </svg>
+                              </button>
+                              <span class="control-value" id="vent-fan-value"
+                                >30%</span
+                              >
+                              <button class="control-btn" id="vent-fan-up">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                  <path d="M7 14l5-5 5 5z" fill="#e5e0e6" />
+                                </svg>
+                              </button>
+                            </div>
+                            <button class="pill-btn toggle-btn" data-id="77">
+                              <div class="pill-btn-content">
+                                <span class="pill-btn-text">Thermostat</span>
+                              </div>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="hvac-control-item" id="vent-2">
-                      <button class="pill-btn toggle-btn" data-id="65">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">On/Off</span>
-                        </div>
-                      </button>
-                      <button class="pill-btn toggle-btn" data-id="66">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Intake</span>
-                        </div>
-                      </button>
-                      <button class="pill-btn toggle-btn" data-id="67">
-                        <div class="pill-btn-content">
-                          <span class="pill-btn-text">Exhaust</span>
-                        </div>
-                      </button>
-                      <div class="numeric-control">
-                        <span class="control-label">Timer</span>
-                        <div class="control-value-container">
-                          <button class="control-btn" id="vent-fan2-down">
-                            <svg width="16" height="16" viewBox="0 0 24 24">
-                              <path d="M7 10l5 5 5-5z" fill="#e5e0e6" />
-                            </svg>
+                    <div
+                      class="hvac-control-item two-column-control"
+                      id="vent-2"
+                    >
+                      <h2>Fan #2</h2>
+                      <div class="vent-controls-container">
+                        <!-- Left Column -->
+                        <div class="vent-column">
+                          <button class="pill-btn toggle-btn" data-id="65">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">On/Off</span>
+                            </div>
                           </button>
-                          <span class="control-value" id="vent-fan2-value"
-                            >30%</span
-                          >
-                          <button class="control-btn" id="vent-fan2-up">
-                            <svg width="16" height="16" viewBox="0 0 24 24">
-                              <path d="M7 14l5-5 5 5z" fill="#e5e0e6" />
-                            </svg>
+                          <button class="pill-btn toggle-btn" data-id="66">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">Intake</span>
+                            </div>
                           </button>
+                          <button class="pill-btn toggle-btn" data-id="67">
+                            <div class="pill-btn-content">
+                              <span class="pill-btn-text">Exhaust</span>
+                            </div>
+                          </button>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="vent-column">
+                          <div class="numeric-control">
+                            <span class="control-label">Fan Speed</span>
+                            <div class="control-value-container">
+                              <button class="control-btn" id="vent-fan-down">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                  <path d="M7 10l5 5 5-5z" fill="#e5e0e6" />
+                                </svg>
+                              </button>
+                              <span class="control-value" id="vent-fan-value"
+                                >30%</span
+                              >
+                              <button class="control-btn" id="vent-fan-up">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                  <path d="M7 14l5-5 5 5z" fill="#e5e0e6" />
+                                </svg>
+                              </button>
+                            </div>
+                            <button class="pill-btn toggle-btn" data-id="77">
+                              <div class="pill-btn-content">
+                                <span class="pill-btn-text">Thermostat</span>
+                              </div>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -503,25 +581,28 @@
             <!-- Thermostat Panel (right) -->
             <div class="thermostat-column">
               <div class="thermostat">
-                <span class="thermostat-title">Temperature</span>
                 <div class="thermostat-display">
-                  <span class="current-temp">72°</span>
+                  <div class="set-temp">
+                    <span>Temperature</span>
+                  </div>
+                  <span class="current-temp" id="">72°</span>
                   <span class="temp-unit">F</span>
                 </div>
-                <div class="thermostat-controls">
+                <div class="slider-container temp-slider-container">
+                  <input
+                    type="range"
+                    id="temp-slider"
+                    class="slider temp-slider"
+                    min="60"
+                    max="90"
+                    value="74"
+                    step="1"
+                  />
+                </div>
+                <div class="thermostat-display">
+                  <span class="target-temp" id="target-temp">74°F</span>
                   <div class="set-temp">
-                    <span>Set to: </span><span id="target-temp">74°F</span>
-                  </div>
-                  <div class="slider-container temp-slider-container">
-                    <input
-                      type="range"
-                      id="temp-slider"
-                      class="slider temp-slider"
-                      min="60"
-                      max="90"
-                      value="74"
-                      step="1"
-                    />
+                    <span>Target</span>
                   </div>
                 </div>
               </div>
@@ -541,14 +622,9 @@
                   class="lighting-tab-button active"
                   data-lighting-tab="interior"
                 >
-                  Lights
-                </button>
-                <button
-                  class="lighting-tab-button"
-                  data-lighting-tab="exterior"
-                >
                   Switches
                 </button>
+
                 <button class="lighting-tab-button" data-lighting-tab="rgb">
                   RBG Lights
                 </button>
@@ -563,211 +639,164 @@
                 <!-- Interior Lighting Panel -->
                 <div class="lighting-tab-content active" id="interior-tab">
                   <div class="lighting-control-grid two-column">
-                    <!-- First Column -->
-                    <div class="lighting-column">
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Main Cabin</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-main"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="50"
-                          />
-                          <span class="slider-value">50%</span>
-                        </div>
-                      </div>
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Reading Lights</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-reading"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="70"
-                          />
-                          <span class="slider-value">70%</span>
-                        </div>
-                      </div>
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Accent Lights</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-accent"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="30"
-                          />
-                          <span class="slider-value">30%</span>
-                        </div>
+                    <!-- Row 1 -->
+                    <div class="lighting-control-item">
+                      <span class="lighting-label">Main Cabin</span>
+                      <div class="slider-container">
+                        <input
+                          type="range"
+                          id="interior-main"
+                          class="slider"
+                          min="0"
+                          max="100"
+                          value="50"
+                        />
                       </div>
                     </div>
-                    <!-- Second Column -->
-                    <div class="lighting-column">
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Galley</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-galley"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="80"
-                          />
-                          <span class="slider-value">80%</span>
-                        </div>
-                      </div>
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Bathroom</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-bathroom"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="60"
-                          />
-                          <span class="slider-value">60%</span>
-                        </div>
-                      </div>
-                      <div class="lighting-control-item">
-                        <span class="lighting-label">Bedroom</span>
-                        <div class="slider-container">
-                          <input
-                            type="range"
-                            id="interior-bedroom"
-                            class="slider"
-                            min="0"
-                            max="100"
-                            value="40"
-                          />
-                          <span class="slider-value">40%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Exterior Lighting Panel -->
-                <div class="lighting-tab-content" id="exterior-tab">
-                  <!-- Button Grid -->
-                  <div class="button-grid">
-                    <!-- Example Button (repeat similar blocks as needed) -->
-                    <div class="button-1">
-                      <span class="button-1-label">Button 1</span>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 1</span>
                       <button class="round-btn toggle-btn" data-id="1">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/12-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/12-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <div class="button-1">
-                      <span class="button-1-label">Button 1</span>
-                      <button class="round-btn toggle-btn" data-id="1">
-                        <img
-                          src="images/icons/1-white.png"
-                          class="icon inactive"
-                          alt="Icon"
-                        />
-                        <img
-                          src="images/icons/1-black.png"
-                          class="icon active"
-                          alt="Icon Active"
-                        />
-                      </button>
-                    </div>
-                    <div class="button-2">
-                      <span class="button-2-label">Button 2</span>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 2</span>
                       <button class="round-btn toggle-btn" data-id="2">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/9-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/9-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <div class="button-1">
-                      <span class="button-3-label">Button 3</span>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 3</span>
                       <button class="round-btn toggle-btn" data-id="3">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/8-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/8-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <div class="button-4">
-                      <span class="button-4-label">Button 4</span>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 4</span>
                       <button class="round-btn toggle-btn" data-id="4">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/12-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/12-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <div class="button-5">
-                      <span class="button-5-label">Button 5</span>
+
+                    <!-- Row 2 -->
+                    <div class="lighting-control-item">
+                      <span class="lighting-label">Reading Lights</span>
+                      <div class="slider-container">
+                        <input
+                          type="range"
+                          id="interior-reading"
+                          class="slider"
+                          min="0"
+                          max="100"
+                          value="70"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 5</span>
                       <button class="round-btn toggle-btn" data-id="5">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/12-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/12-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <div class="button-6">
-                      <span class="button-6-label">Button 6</span>
+
+                    <div class="button-item">
+                      <span class="button-label">Light 6</span>
                       <button class="round-btn toggle-btn" data-id="6">
                         <img
-                          src="images/icons/1-white.png"
+                          src="images/icons/9-white.png"
                           class="icon inactive"
                           alt="Icon"
                         />
                         <img
-                          src="images/icons/1-black.png"
+                          src="images/icons/9-black.png"
                           class="icon active"
                           alt="Icon Active"
                         />
                       </button>
                     </div>
-                    <!-- Additional buttons (button-2, button-3, etc.) go here -->
+
+                    <div class="button-item">
+                      <span class="button-label">Light 7</span>
+                      <button class="round-btn toggle-btn" data-id="7">
+                        <img
+                          src="images/icons/8-white.png"
+                          class="icon inactive"
+                          alt="Icon"
+                        />
+                        <img
+                          src="images/icons/8-black.png"
+                          class="icon active"
+                          alt="Icon Active"
+                        />
+                      </button>
+                    </div>
+
+                    <div class="lighting-control-item">
+                      <span class="lighting-label">Accent Lights</span>
+                      <div class="slider-container">
+                        <input
+                          type="range"
+                          id="interior-accent"
+                          class="slider"
+                          min="0"
+                          max="100"
+                          value="30"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <!-- RGB Lighting Panel -->
                 <div class="lighting-tab-content" id="rgb-tab">
                   <div class="rgb-zone-tabs">
@@ -788,39 +817,39 @@
                     </button>
                   </div>
                   <div class="rgb-zone-panels">
-                    <!-- Repeat similar markup for each zone (Zone 1 shown as example) -->
-                    <div class="rgb-zone-content" id="zone1-tab">
-                      <div class="lighting-control-grid two-column">
+                    <!-- Zone 1 -->
+                    <div class="rgb-zone-content active" id="zone1-tab">
+                      <div class="lighting-control-grid two-column rgb">
                         <div class="lighting-column">
                           <div class="lighting-control-item">
                             <div class="mode-toggle">
+                              <!-- Power button -->
                               <button
-                                class="pill-btn toggle-btn mode-btn active"
+                                class="pill-btn toggle-btn rgb-power-btn"
+                                data-mode="power"
+                                data-zone="1"
+                                data-id="101"
+                              >
+                                <span class="pill-btn-text">On/Off</span>
+                              </button>
+                              <!-- RGB mode button -->
+                              <button
+                                class="pill-btn toggle-btn rgb-mode-btn"
                                 data-mode="rgb"
                                 data-zone="1"
+                                data-id="102"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">RGB</span>
-                                </div>
+                                <span class="pill-btn-text">RGB</span>
                               </button>
+                              <!-- White mode button -->
                               <button
-                                class="pill-btn toggle-btn mode-btn"
+                                class="pill-btn toggle-btn rgb-mode-btn"
                                 data-mode="white"
                                 data-zone="1"
+                                data-id="103"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">White</span>
-                                </div>
+                                <span class="pill-btn-text">White</span>
                               </button>
-                            </div>
-                            <div class="color-selector">
-                              <input
-                                type="color"
-                                id="rgb-color-zone1"
-                                value="#ff5500"
-                                class="zone-color-picker"
-                                data-zone="1"
-                              />
                             </div>
                           </div>
                         </div>
@@ -836,8 +865,8 @@
                                 max="100"
                                 value="60"
                                 data-zone="1"
+                                data-id="104"
                               />
-                              <span class="slider-value">60%</span>
                             </div>
                             <div class="slider-group" data-slider-type="rgb">
                               <span class="lighting-label">Color</span>
@@ -852,6 +881,7 @@
                                   max="359"
                                   value="20"
                                   data-zone="1"
+                                  data-id="105"
                                 />
                               </div>
                             </div>
@@ -872,6 +902,7 @@
                                   max="6500"
                                   value="4600"
                                   data-zone="1"
+                                  data-id="106"
                                 />
                               </div>
                             </div>
@@ -879,38 +910,37 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- Zone 2 -->
                     <div class="rgb-zone-content" id="zone2-tab">
-                      <div class="lighting-control-grid two-column">
+                      <div class="lighting-control-grid two-column rgb">
                         <div class="lighting-column">
                           <div class="lighting-control-item">
                             <div class="mode-toggle">
                               <button
-                                class="pill-btn toggle-btn mode-btn active"
-                                data-mode="rgb"
+                                class="pill-btn toggle-btn rgb-power-btn"
+                                data-mode="power"
                                 data-zone="2"
+                                data-id="107"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">RGB</span>
-                                </div>
+                                <span class="pill-btn-text">On/Off</span>
                               </button>
                               <button
-                                class="pill-btn toggle-btn mode-btn"
+                                class="pill-btn toggle-btn rgb-mode-btn"
+                                data-mode="rgb"
+                                data-zone="2"
+                                data-id="108"
+                              >
+                                <span class="pill-btn-text">RGB</span>
+                              </button>
+                              <button
+                                class="pill-btn toggle-btn rgb-mode-btn"
                                 data-mode="white"
                                 data-zone="2"
+                                data-id="109"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">White</span>
-                                </div>
+                                <span class="pill-btn-text">White</span>
                               </button>
-                            </div>
-                            <div class="color-selector">
-                              <input
-                                type="color"
-                                id="rgb-color-zone1"
-                                value="#ff5500"
-                                class="zone-color-picker"
-                                data-zone="2"
-                              />
                             </div>
                           </div>
                         </div>
@@ -920,14 +950,14 @@
                             <div class="slider-container">
                               <input
                                 type="range"
-                                id="brightness-zone1"
+                                id="brightness-zone2"
                                 class="slider"
                                 min="0"
                                 max="100"
                                 value="60"
                                 data-zone="2"
+                                data-id="110"
                               />
-                              <span class="slider-value">60%</span>
                             </div>
                             <div class="slider-group" data-slider-type="rgb">
                               <span class="lighting-label">Color</span>
@@ -936,12 +966,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="hue-zone1"
+                                  id="hue-zone2"
                                   class="slider color-slider"
                                   min="0"
                                   max="359"
                                   value="20"
                                   data-zone="2"
+                                  data-id="111"
                                 />
                               </div>
                             </div>
@@ -956,12 +987,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="warmth-zone1"
+                                  id="warmth-zone2"
                                   class="slider warmth-slider"
                                   min="2700"
                                   max="6500"
                                   value="4600"
                                   data-zone="2"
+                                  data-id="112"
                                 />
                               </div>
                             </div>
@@ -969,38 +1001,37 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- Zone 3 -->
                     <div class="rgb-zone-content" id="zone3-tab">
-                      <div class="lighting-control-grid two-column">
+                      <div class="lighting-control-grid two-column rgb">
                         <div class="lighting-column">
                           <div class="lighting-control-item">
                             <div class="mode-toggle">
                               <button
-                                class="pill-btn toggle-btn mode-btn active"
-                                data-mode="rgb"
+                                class="pill-btn toggle-btn rgb-power-btn"
+                                data-mode="power"
                                 data-zone="3"
+                                data-id="113"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">RGB</span>
-                                </div>
+                                <span class="pill-btn-text">On/Off</span>
                               </button>
                               <button
-                                class="pill-btn toggle-btn mode-btn"
+                                class="pill-btn toggle-btn rgb-mode-btn"
+                                data-mode="rgb"
+                                data-zone="3"
+                                data-id="114"
+                              >
+                                <span class="pill-btn-text">RGB</span>
+                              </button>
+                              <button
+                                class="pill-btn toggle-btn rgb-mode-btn"
                                 data-mode="white"
                                 data-zone="3"
+                                data-id="115"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">White</span>
-                                </div>
+                                <span class="pill-btn-text">White</span>
                               </button>
-                            </div>
-                            <div class="color-selector">
-                              <input
-                                type="color"
-                                id="rgb-color-zone1"
-                                value="#ff5500"
-                                class="zone-color-picker"
-                                data-zone="3"
-                              />
                             </div>
                           </div>
                         </div>
@@ -1010,14 +1041,14 @@
                             <div class="slider-container">
                               <input
                                 type="range"
-                                id="brightness-zone1"
+                                id="brightness-zone3"
                                 class="slider"
                                 min="0"
                                 max="100"
                                 value="60"
                                 data-zone="3"
+                                data-id="116"
                               />
-                              <span class="slider-value">60%</span>
                             </div>
                             <div class="slider-group" data-slider-type="rgb">
                               <span class="lighting-label">Color</span>
@@ -1026,12 +1057,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="hue-zone1"
+                                  id="hue-zone3"
                                   class="slider color-slider"
                                   min="0"
                                   max="359"
                                   value="20"
                                   data-zone="3"
+                                  data-id="117"
                                 />
                               </div>
                             </div>
@@ -1046,12 +1078,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="warmth-zone1"
+                                  id="warmth-zone3"
                                   class="slider warmth-slider"
                                   min="2700"
                                   max="6500"
                                   value="4600"
                                   data-zone="3"
+                                  data-id="118"
                                 />
                               </div>
                             </div>
@@ -1059,38 +1092,37 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- Zone 4 -->
                     <div class="rgb-zone-content" id="zone4-tab">
-                      <div class="lighting-control-grid two-column">
+                      <div class="lighting-control-grid two-column rgb">
                         <div class="lighting-column">
                           <div class="lighting-control-item">
                             <div class="mode-toggle">
                               <button
-                                class="pill-btn toggle-btn mode-btn active"
-                                data-mode="rgb"
+                                class="pill-btn toggle-btn rgb-power-btn"
+                                data-mode="power"
                                 data-zone="4"
+                                data-id="119"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">RGB</span>
-                                </div>
+                                <span class="pill-btn-text">On/Off</span>
                               </button>
                               <button
-                                class="pill-btn toggle-btn mode-btn"
+                                class="pill-btn toggle-btn rgb-mode-btn"
+                                data-mode="rgb"
+                                data-zone="4"
+                                data-id="120"
+                              >
+                                <span class="pill-btn-text">RGB</span>
+                              </button>
+                              <button
+                                class="pill-btn toggle-btn rgb-mode-btn"
                                 data-mode="white"
                                 data-zone="4"
+                                data-id="121"
                               >
-                                <div class="pill-btn-content">
-                                  <span class="pill-btn-text">White</span>
-                                </div>
+                                <span class="pill-btn-text">White</span>
                               </button>
-                            </div>
-                            <div class="color-selector">
-                              <input
-                                type="color"
-                                id="rgb-color-zone1"
-                                value="#ff5500"
-                                class="zone-color-picker"
-                                data-zone="4"
-                              />
                             </div>
                           </div>
                         </div>
@@ -1100,14 +1132,14 @@
                             <div class="slider-container">
                               <input
                                 type="range"
-                                id="brightness-zone1"
+                                id="brightness-zone4"
                                 class="slider"
                                 min="0"
                                 max="100"
                                 value="60"
                                 data-zone="4"
+                                data-id="123"
                               />
-                              <span class="slider-value">60%</span>
                             </div>
                             <div class="slider-group" data-slider-type="rgb">
                               <span class="lighting-label">Color</span>
@@ -1116,12 +1148,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="hue-zone1"
+                                  id="hue-zone4"
                                   class="slider color-slider"
                                   min="0"
                                   max="359"
                                   value="20"
                                   data-zone="4"
+                                  data-id="124"
                                 />
                               </div>
                             </div>
@@ -1136,12 +1169,13 @@
                               >
                                 <input
                                   type="range"
-                                  id="warmth-zone1"
+                                  id="warmth-zone4"
                                   class="slider warmth-slider"
                                   min="2700"
                                   max="6500"
                                   value="4600"
                                   data-zone="4"
+                                  data-id="125"
                                 />
                               </div>
                             </div>
@@ -1149,7 +1183,35 @@
                         </div>
                       </div>
                     </div>
-                    <!-- Zone 2, Zone 3, and Zone 4 would follow a similar structure -->
+                  </div>
+                </div>
+                <div class="lighting-tab-content" id="accessories-tab">
+                  <!-- Accessories sub-tab navigation -->
+                  <div class="accessory-zone-tabs">
+                    <button
+                      class="accessory-zone-button active"
+                      data-accessory-tab="acc1"
+                    >
+                      Awning
+                    </button>
+                    <button
+                      class="accessory-zone-button"
+                      data-accessory-tab="acc2"
+                    >
+                      Slide
+                    </button>
+                  </div>
+
+                  <!-- Accessories sub-tab panels -->
+                  <div class="accessory-zone-panels">
+                    <div class="accessory-zone-content active" id="acc1-tab">
+                      <!-- Content for Acc 1 here -->
+                      <p>Accessories for zone 1.</p>
+                    </div>
+                    <div class="accessory-zone-content" id="acc2-tab">
+                      <!-- Content for Acc 2 here -->
+                      <p>Accessories for zone 2.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1169,68 +1231,40 @@
               <div class="tank-gauge-container">
                 <!-- Fresh Water Tank -->
                 <div class="tank-gauge-item">
-                  <span class="tank-label">Fresh Water</span>
+                  <span class="tank-label">Tank 1</span>
                   <div class="vertical-gauge-container">
                     <div class="vertical-gauge">
                       <div class="gauge-level" style="height: 75%"></div>
-                    </div>
-                    <div class="gauge-markers">
-                      <span>100%</span>
-                      <span>75%</span>
-                      <span>50%</span>
-                      <span>25%</span>
-                      <span>0%</span>
                     </div>
                   </div>
                   <span class="tank-percentage">75%</span>
                 </div>
                 <!-- Grey Water Tank -->
                 <div class="tank-gauge-item">
-                  <span class="tank-label">Grey Water</span>
+                  <span class="tank-label">Tank 2</span>
                   <div class="vertical-gauge-container">
                     <div class="vertical-gauge">
                       <div class="gauge-level" style="height: 30%"></div>
-                    </div>
-                    <div class="gauge-markers">
-                      <span>100%</span>
-                      <span>75%</span>
-                      <span>50%</span>
-                      <span>25%</span>
-                      <span>0%</span>
                     </div>
                   </div>
                   <span class="tank-percentage">30%</span>
                 </div>
                 <!-- Black Water Tank -->
                 <div class="tank-gauge-item">
-                  <span class="tank-label">Black Water</span>
+                  <span class="tank-label">Tank 3</span>
                   <div class="vertical-gauge-container">
                     <div class="vertical-gauge">
                       <div class="gauge-level" style="height: 45%"></div>
-                    </div>
-                    <div class="gauge-markers">
-                      <span>100%</span>
-                      <span>75%</span>
-                      <span>50%</span>
-                      <span>25%</span>
-                      <span>0%</span>
                     </div>
                   </div>
                   <span class="tank-percentage">45%</span>
                 </div>
                 <!-- LPG Tank -->
                 <div class="tank-gauge-item">
-                  <span class="tank-label">LPG</span>
+                  <span class="tank-label">Tank 4</span>
                   <div class="vertical-gauge-container">
                     <div class="vertical-gauge">
                       <div class="gauge-level" style="height: 60%"></div>
-                    </div>
-                    <div class="gauge-markers">
-                      <span>100%</span>
-                      <span>75%</span>
-                      <span>50%</span>
-                      <span>25%</span>
-                      <span>0%</span>
                     </div>
                   </div>
                   <span class="tank-percentage">60%</span>
@@ -1285,12 +1319,12 @@
       </button>
       <button class="tab-button" data-tab="slider">
         <img
-          src="images/icons/lighting-active.png"
+          src="images/icons/switching-active.png"
           class="icon active"
           alt="Lighting"
         />
         <img
-          src="images/icons/lighting.png"
+          src="images/icons/switching.png"
           class="icon inactive"
           alt="Lighting"
         />
