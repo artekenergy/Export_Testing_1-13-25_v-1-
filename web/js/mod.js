@@ -51,6 +51,7 @@
     },
   };
 
+<<<<<<< HEAD
   const CONSTANTS = {
     HEARTBEAT_INTERVAL: 5000, // 5 seconds
     MESSAGE_TYPES: {
@@ -77,6 +78,672 @@
       AC_LIMIT: 12,
     },
     SLIDER_IDS: {
+=======
+  // --------------------------
+  // WebSocket & Heartbeat Setup
+  // --------------------------
+  let socket = null
+  const HEARTBEAT_INTERVAL = 5000 // 5 sec heartbeat
+  let heartbeatInterval = null
+  let heartbeatTimer = null
+
+  // Helper: Check if socket is open
+  const isSocketOpen = () => socket && socket.readyState === WebSocket.OPEN
+
+  // --------------------------
+  // Logging Utility
+  // --------------------------
+  const log = (message) => {
+    const entry = document.createElement("div")
+    entry.textContent = `${new Date().toLocaleTimeString()} - ${message}`
+    logElement?.appendChild(entry)
+    if (logElement) logElement.scrollTop = logElement.scrollHeight
+  }
+
+  // --------------------------
+  // WebSocket Connection Functions
+  // --------------------------
+  function connectWebSocket() {
+    const host = document.getElementById("ws-host")?.value || "172.16.11.7"
+    const port = document.getElementById("ws-port")?.value || "8888"
+    if (isSocketOpen()) socket.close()
+    const wsUrl = `ws://${host}:${port}/ws`
+    log(`Connecting to ${wsUrl}...`)
+
+    try {
+      socket = new WebSocket(wsUrl)
+
+      socket.onopen = () => {
+        connectionStatus.textContent = `Connected to ${wsUrl}`
+        connectionStatus.className = "connection-status connected"
+        log("Connection established")
+        startHeartbeat()
+      }
+
+      socket.onmessage = (event) => {
+        log(`Received: ${event.data}`)
+        try {
+          const packet = JSON.parse(event.data)
+
+          // Handle heartbeat ping from server
+          if (
+            packet.messagecmd === 5 &&
+            packet.messagetype === 48 &&
+            packet.size === 0
+          ) {
+            sendPong()
+            log("Responding to server heartbeat")
+            return
+          }
+
+          // Handle NMEA 2000 data
+          if (packet.messagetype === 82) {
+            // NMEA message type
+            const decodedData = decoder.decodeN2KDataItem(packet)
+            if (decodedData) {
+              log(
+                `Decoded NMEA Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+              )
+              handleDecodedSignal(decodedData)
+            }
+          }
+
+          // Handle MFD channel data
+          if (packet.messagetype === 16) {
+            // MFD status
+            const decodedData = decoder.decodeMFDChannelItem(packet)
+            if (decodedData) {
+              log(
+                `Decoded MFD Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+              )
+              handleDecodedSignal(decodedData)
+            }
+          }
+        } catch (e) {
+          console.error("Error processing WebSocket message:", e)
+        }
+      }
+
+      socket.onclose = () => {
+        connectionStatus.textContent = "Disconnected"
+        connectionStatus.className = "connection-status disconnected"
+        log("Connection closed")
+        stopHeartbeat()
+      }
+
+      socket.onerror = (error) => {
+        connectionStatus.textContent = "Connection error"
+        connectionStatus.className = "connection-status disconnected"
+        log("Error: " + error)
+      }
+    } catch (error) {
+      log("Failed to connect: " + error)
+    }
+  }
+
+  function startHeartbeat() {
+    stopHeartbeat() // clear any existing heartbeat
+    heartbeatInterval = setInterval(() => {
+      if (isSocketOpen()) sendHeartbeat()
+    }, HEARTBEAT_INTERVAL)
+  }
+
+  function stopHeartbeat() {
+    if (heartbeatInterval) clearInterval(heartbeatInterval)
+    heartbeatInterval = null
+    if (heartbeatTimer) clearTimeout(heartbeatTimer)
+    heartbeatTimer = null
+  }
+
+  function sendHeartbeat() {
+    if (!isSocketOpen()) return
+    const heartbeat = { messagetype: 48, messagecmd: 5, size: 0, data: [] }
+    log("Sending heartbeat")
+    socket.send(JSON.stringify(heartbeat))
+  }
+
+  function sendPong() {
+    if (!isSocketOpen()) return
+    const pong = { messagetype: 128, messagecmd: 0, size: 1, data: [0] }
+    socket.send(JSON.stringify(pong))
+  }
+
+  const DataTypes = {
+    int8: 5,
+    uint8: 4,
+    int16: 3,
+    uint16: 2,
+    int32: 1,
+    uint32: 0,
+    int64: 7,
+    uint64: 6,
+  }
+
+  // Add the decoder class
+  class SignalDecoder {
+    constructor() {
+      this.signalInfoMap = new Map()
+    }
+
+    decodeN2KDataItem(packet) {
+      if (packet.messagecmd === 1) {
+        // statusUpdate
+        const signalId = packet.data[0] | (packet.data[1] << 8)
+        return {
+          signalId: signalId,
+          valueTypeIdentifier: packet.data[3] | (packet.data[4] << 8),
+          value: this._getValue(signalId, packet.data, 5),
+        }
+      }
+      return null
+    }
+
+    _getValue(signalId, data, offset) {
+      const array = new Uint8Array(data)
+      const view = new DataView(array.buffer)
+
+      // Get data type from signal info or default to int32
+      const dataType =
+        this.signalInfoMap.get(signalId)?.dataType || DataTypes.int32
+
+      switch (dataType) {
+        case DataTypes.int8:
+          return view.getInt8(offset)
+        case DataTypes.uint8:
+          return view.getUint8(offset)
+        case DataTypes.int16:
+          return view.getInt16(offset, true)
+        case DataTypes.uint16:
+          return view.getUint16(offset, true)
+        case DataTypes.int32:
+          return view.getInt32(offset, true)
+        case DataTypes.uint32:
+          return view.getUint32(offset, true)
+        case DataTypes.int64:
+          return Number(view.getBigInt64(offset, true))
+        case DataTypes.uint64:
+          return Number(view.getBigUint64(offset, true))
+      }
+    }
+  }
+
+  // Create an instance of the decoder
+  const decoder = new SignalDecoder()
+
+  // Modify your existing WebSocket onmessage handler
+  socket.onmessage = (event) => {
+    log(`Received: ${event.data}`)
+    try {
+      const packet = JSON.parse(event.data)
+
+      // Handle heartbeat ping from server
+      if (
+        packet.messagecmd === 5 &&
+        packet.messagetype === 48 &&
+        packet.size === 0
+      ) {
+        sendPong()
+        log("Responding to server heartbeat")
+        return
+      }
+
+      // Handle NMEA 2000 data
+      if (packet.messagetype === 82) {
+        // NMEA message type
+        const decodedData = decoder.decodeN2KDataItem(packet)
+        if (decodedData) {
+          log(
+            `Decoded NMEA Signal: ID=${decodedData.signalId}, Value=${decodedData.value}`
+          )
+          handleDecodedSignal(decodedData)
+        }
+      }
+    } catch (e) {
+      console.error("Error processing WebSocket message:", e)
+    }
+  }
+
+  // Add a handler for decoded signals
+  function handleDecodedSignal(signal) {
+    // Track the signal
+    signalMonitor.trackSignal(
+      signal.signalId,
+      signal.value,
+      signal.valueTypeIdentifier ? "NMEA" : "MFD"
+    )
+
+    // Update signal in manager (existing code)
+    signalManager.updateSignal(signal.signalId, signal.value)
+    // Update UI elements based on signal ID and value
+    // Example:
+    const element = document.querySelector(
+      `[data-signal-id="${signal.signalId}"]`
+    )
+    if (element) {
+      if (element.classList.contains("signalvalue")) {
+        element.textContent = signal.value.toString()
+      } else if (element.classList.contains("toggle-btn")) {
+        element.classList.toggle("active", Boolean(signal.value))
+      }
+    }
+  }
+
+  // Add these utility functions
+  function showSignalMonitor() {
+    // Create or get monitor overlay
+    let monitorOverlay = document.getElementById("signal-monitor")
+    if (!monitorOverlay) {
+      monitorOverlay = document.createElement("div")
+      monitorOverlay.id = "signal-monitor"
+      monitorOverlay.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 9999;
+        `
+      document.body.appendChild(monitorOverlay)
+    }
+
+    // Update monitor content
+    function updateMonitor() {
+      const signals = signalMonitor.getAllSignals()
+      monitorOverlay.innerHTML = `
+            <h3>Active Signals (${signals.length})</h3>
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <th style="padding: 5px; border: 1px solid #444;">ID</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Value</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Type</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Updates</th>
+                    <th style="padding: 5px; border: 1px solid #444;">Last Update</th>
+                </tr>
+                ${signals
+                  .map(
+                    (s) => `
+                    <tr>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.id
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.value
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.type
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${
+                          s.updateCount
+                        }</td>
+                        <td style="padding: 5px; border: 1px solid #444;">${s.timeSinceUpdate.toFixed(
+                          1
+                        )}s</td>
+                    </tr>
+                `
+                  )
+                  .join("")}
+            </table>
+        `
+    }
+
+    // Update every second
+    const monitorInterval = setInterval(updateMonitor, 1000)
+
+    // Add close button
+    const closeBtn = document.createElement("button")
+    closeBtn.textContent = "Close Monitor"
+    closeBtn.style.marginTop = "10px"
+    closeBtn.onclick = () => {
+      clearInterval(monitorInterval)
+      monitorOverlay.remove()
+    }
+    monitorOverlay.appendChild(closeBtn)
+  }
+
+  // Create signal manager instance
+  const signalManager = new SignalManager()
+
+  // Modify the existing handleDecodedSignal function
+  function handleDecodedSignal(signal) {
+    // Update signal in manager
+    signalManager.updateSignal(signal.signalId, signal.value)
+
+    // Update UI elements based on signal ID and value
+    const elements = document.querySelectorAll(
+      `[data-signal-id="${signal.signalId}"]`
+    )
+    elements.forEach((element) => {
+      if (element.classList.contains("signalvalue")) {
+        element.textContent = signal.value.toString()
+      } else if (element.classList.contains("toggle-btn")) {
+        element.classList.toggle("active", Boolean(signal.value))
+      } else if (element.classList.contains("slider")) {
+        element.value = signal.value
+        const valueDisplay = element.nextElementSibling
+        if (valueDisplay?.classList.contains("slider-value")) {
+          valueDisplay.textContent = `${signal.value}%`
+        }
+      }
+    })
+  }
+  // Signal monitoring and debugging
+  class SignalMonitor {
+    constructor() {
+      this.signals = new Map()
+      this.lastUpdateTime = new Map()
+    }
+
+    // Track incoming signal
+    trackSignal(signalId, value, type = "unknown") {
+      this.signals.set(signalId, {
+        value,
+        type,
+        lastUpdate: new Date(),
+        updateCount: (this.signals.get(signalId)?.updateCount || 0) + 1,
+      })
+    }
+
+    // Get all tracked signals
+    getAllSignals() {
+      return Array.from(this.signals.entries()).map(([id, data]) => ({
+        id,
+        ...data,
+        timeSinceUpdate: (new Date() - data.lastUpdate) / 1000,
+      }))
+    }
+
+    // Print signal summary to console
+    printSignalSummary() {
+      console.group("Active Signals Summary")
+      console.table(this.getAllSignals())
+      console.groupEnd()
+    }
+  }
+
+  // --------------------------
+  // Command Sending Functions
+  // --------------------------
+  function sendToggleButtonCommand(id, state) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const command = {
+      messagetype: 17,
+      messagecmd: 0,
+      size: 3,
+      data: [id, 0, state ? 3 : 5], // ON = 3, OFF = 5
+    }
+    log(`Sending toggle button ${id} command: ${state ? "ON" : "OFF"}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendButtonCommand(id, state) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const command = {
+      messagetype: 17,
+      messagecmd: 1,
+      size: 3,
+      data: [id, 0, state ? 1 : 0],
+    }
+    log(`Sending button ${id} command: ${state ? "ON" : "OFF"}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendSliderCommand(id, value) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const command = {
+      messagetype: 17,
+      messagecmd: 3,
+      size: 5,
+      data: [id, 0, 0, value & 0xff, (value >> 8) & 0xff],
+    }
+    log(`Setting slider ${id} to value: ${value}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendThermostatCommand(temp) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const command = {
+      messagetype: 17,
+      messagecmd: 4,
+      size: 3,
+      data: [30, 0, temp],
+    }
+    log(`Setting thermostat to ${temp}°F`)
+    socket.send(JSON.stringify(command))
+  }
+
+  // Zone-related commands (RGB, brightness, mode, warmth)
+  function sendZoneRgbCommand(zone, colorHex) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const r = parseInt(colorHex.substring(1, 3), 16)
+    const g = parseInt(colorHex.substring(3, 5), 16)
+    const b = parseInt(colorHex.substring(5, 7), 16)
+    const zoneOffset = 100 + parseInt(zone, 10)
+    const command = {
+      messagetype: 17,
+      messagecmd: 6,
+      size: 5,
+      data: [zoneOffset, r, g, b, 0],
+    }
+    log(`Setting Zone ${zone} RGB to: R=${r}, G=${g}, B=${b}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendZoneBrightnessCommand(zone, brightness) {
+    if (!isSocketOpen()) return
+    const zoneOffset = 200 + parseInt(zone, 10)
+    const command = {
+      messagetype: 17,
+      messagecmd: 3,
+      size: 5,
+      data: [zoneOffset, 0, 0, brightness & 0xff, (brightness >> 8) & 0xff],
+    }
+    log(`Setting Zone ${zone} brightness to: ${brightness}%`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendZoneModeCommand(zone, mode) {
+    if (!isSocketOpen()) return
+    const zoneOffset = 300 + parseInt(zone, 10)
+    const modeValue = mode === "rgb" ? 1 : 2
+    const command = {
+      messagetype: 17,
+      messagecmd: 4,
+      size: 3,
+      data: [zoneOffset, 0, modeValue],
+    }
+    log(`Setting Zone ${zone} mode to: ${mode}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendZoneWarmthCommand(zone, temperature) {
+    if (!isSocketOpen()) return
+    let r, g, b
+    // Simplified color conversion based on temperature
+    if (temperature <= 4600) {
+      const factor = (temperature - 2700) / (4600 - 2700)
+      r = 255
+      g = Math.round(255 * factor)
+      b = Math.round(190 * factor)
+    } else {
+      const factor = (temperature - 4600) / (6500 - 4600)
+      r = Math.round(255 * (1 - factor * 0.3))
+      g = Math.round(255 * (1 - factor * 0.1))
+      b = 255
+    }
+    const zoneOffset = 100 + parseInt(zone, 10)
+    const command = {
+      messagetype: 17,
+      messagecmd: 7,
+      size: 5,
+      data: [zoneOffset, r, g, b, 1], // '1' indicates white mode
+    }
+    log(
+      `Setting Zone ${zone} temperature to: ${temperature}K (R=${r}, G=${g}, B=${b})`
+    )
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendAcLimitCommand(limit) {
+    if (!isSocketOpen()) return
+    const command = {
+      messagetype: 17,
+      messagecmd: 4,
+      size: 3,
+      data: [12, 0, limit],
+    }
+    log(`Setting AC input limit to: ${limit}A`)
+    socket.send(JSON.stringify(command))
+  }
+
+  // Fan speed command (using a given command ID)
+  function sendFanSpeedCommand(commandId, speed) {
+    if (!isSocketOpen()) return
+    const command = {
+      messagetype: 17,
+      messagecmd: 4,
+      size: 3,
+      data: [commandId, 0, speed],
+    }
+    log(`Setting fan speed (ID: ${commandId}) to: ${speed}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendVentTimerCommand(time) {
+    if (!isSocketOpen()) return
+    const command = {
+      messagetype: 17,
+      messagecmd: 4,
+      size: 3,
+      data: [68, 0, time],
+    }
+    log(`Setting vent timer to: ${time} minutes`)
+    socket.send(JSON.stringify(command))
+  }
+
+  function sendRgbCommand(r, g, b) {
+    if (!isSocketOpen()) {
+      log("Not connected to WebSocket server")
+      return
+    }
+    const command = {
+      messagetype: 17,
+      messagecmd: 6,
+      size: 5,
+      data: [45, r, g, b, 0],
+    }
+    log(`Setting RGB to: R=${r}, G=${g}, B=${b}`)
+    socket.send(JSON.stringify(command))
+  }
+
+  // --------------------------
+  // UI Setup Functions
+  // --------------------------
+  function initializeButtons() {
+    // Connect/disconnect
+    connectBtn?.addEventListener("click", connectWebSocket)
+    disconnectBtn?.addEventListener("click", () => {
+      if (socket) {
+        socket.close()
+        stopHeartbeat()
+      }
+    })
+    // Toggle buttons
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const componentId = parseInt(btn.dataset.id, 10)
+        const isActive = btn.classList.toggle("active")
+        sendToggleButtonCommand(componentId, isActive)
+      })
+    })
+    // Momentary buttons
+    momentaryButtons.forEach((btn) => {
+      btn.addEventListener("mousedown", () => {
+        const id = parseInt(btn.dataset.id, 10)
+        sendButtonCommand(id, true)
+        btn.classList.add("active")
+      })
+      btn.addEventListener("mouseup", () => {
+        const id = parseInt(btn.dataset.id, 10)
+        sendButtonCommand(id, false)
+        btn.classList.remove("active")
+      })
+      btn.addEventListener("touchstart", (e) => {
+        e.preventDefault()
+        const id = parseInt(btn.dataset.id, 10)
+        sendButtonCommand(id, true)
+        btn.classList.add("active")
+      })
+      btn.addEventListener("touchend", (e) => {
+        e.preventDefault()
+        const id = parseInt(btn.dataset.id, 10)
+        sendButtonCommand(id, false)
+        btn.classList.remove("active")
+      })
+    })
+    // MultiPlus buttons (mutually exclusive group)
+    const multiplusBtns = document.querySelectorAll(".multiplus-btn")
+    multiplusBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        multiplusBtns.forEach((b) => b.classList.remove("active"))
+        this.classList.add("active")
+        const mode = this.getAttribute("data-mode")
+        const componentId = parseInt(this.getAttribute("data-id"), 10)
+        // Use a mapping instead of a switch for clarity
+        const modeMap = { on: 1, off: 0, charger: 2 }
+        const modeValue = modeMap[mode] ?? 0
+        if (isSocketOpen()) {
+          const command = {
+            messagetype: 17,
+            messagecmd: 4,
+            size: 3,
+            data: [componentId, 0, modeValue],
+          }
+          log(`Setting MultiPlus mode to: ${mode}`)
+          socket.send(JSON.stringify(command))
+        }
+      })
+    })
+  }
+
+  function setupSliders() {
+    const sliders = document.querySelectorAll("input[type='range']")
+    sliders.forEach((slider) => {
+      const valueDisplay = slider.nextElementSibling
+      if (valueDisplay?.classList.contains("slider-value")) {
+        slider.addEventListener("input", () => {
+          const value = slider.value
+          valueDisplay.textContent = `${value}%`
+          const sliderId = slider.id || "slider"
+          sendSliderCommand(getSliderCommandId(sliderId), parseInt(value, 10))
+        })
+      }
+    })
+  }
+
+  function getSliderCommandId(sliderId) {
+    const sliderMap = {
+>>>>>>> 7ba77be65bcd3a60bde9ba0c526c48e51e04303d
       "fan-speed": 20,
       "interior-main": 41,
       "interior-reading": 42,
@@ -1050,6 +1717,7 @@
   // --------------------------
   // Initialization
   // --------------------------
+<<<<<<< HEAD
   function initialize() {
     // Setup all UI components
     setupTabSystem(DOM.tabButtons, ".tab-content", "active", "data-tab");
@@ -1086,6 +1754,29 @@
     setupAcLimitModal();
     initializeButtons();
     connectWebSocket();
+=======
+  document
+    .getElementById("show-monitor")
+    ?.addEventListener("click", showSignalMonitor)
+  document.addEventListener("DOMContentLoaded", () => {
+    setupMainTabs()
+    setupHvacTabs()
+    setupLightingTabs()
+    setupThermostat()
+    setupSliders()
+    setupVentControls()
+    setupRgbZones()
+    setupHvacModeButtons()
+    setupMutuallyExclusiveButtons()
+    setupVentilationButtons()
+    setupAcLimitModal()
+    connectWebSocket()
+    initializeButtons()
+    setTimeout(() => {
+      const overlay = document.getElementById("splash-overlay")
+      // Add the 'hidden' class to fade out the overlay
+      overlay.classList.add("hidden")
+>>>>>>> 7ba77be65bcd3a60bde9ba0c526c48e51e04303d
 
     // Remove splash screen with fade effect
     setTimeout(() => {
